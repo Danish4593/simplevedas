@@ -1,0 +1,17 @@
+/* Reset default browser spacing */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Optional: all elements inherit box-sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Add consistent page padding */
+main {
+  padding: 20px; /* adjust as needed */
+}
