@@ -4,11 +4,27 @@ import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import './index.css';
 
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+// Create custom theme
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FFC13C", // your custom primary color
+    },
+    secondary: {
+      main: "#000000", // optional
+    },
+  },
+});
+
 function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
