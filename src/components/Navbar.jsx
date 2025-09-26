@@ -12,9 +12,10 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 // Icons
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import SimpleVedaLogo from '../assets/images/simple-vedas-logo.png';
 
 export default function Header() {
-  const logoUrl = "https://i0.wp.com/simplevedas.com/wp-content/uploads/2022/02/logo-of-simple-vedas.png";
+
 
   // Menu state
   const [aboutAnchor, setAboutAnchor] = React.useState(null);
@@ -32,7 +33,7 @@ export default function Header() {
         {/* Logo */}
         <Box>
           <Link to="/">
-            <img src={logoUrl} alt="Logo" style={{ height: 50, width: "auto" }} />
+            <img src={SimpleVedaLogo} alt="Logo" style={{ height: 80, width: "auto" ,  margin: '10px auto'}} />
           </Link>
         </Box>
 

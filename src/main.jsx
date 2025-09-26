@@ -8,13 +8,25 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 // Create custom theme
 const theme = createTheme({
+  typography : {
+    fontFamily:[
+      '"Roboto"',
+      '"Open Sans"',
+      'ui-sans-serif',
+      'system-ui',
+      'sans-serif',
+    ]
+  },
   palette: {
     primary: {
       main: "#FFC13C", // your custom primary color
     },
     secondary: {
-      main: "#000000", // optional
+      main: "#2f2f2f", // optional
     },
+    warning : {
+      main : '#800000'
+    }
   },
 });
 

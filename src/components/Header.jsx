@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
+import { Button, Box, Toolbar, AppBar, useTheme } from '@mui/material';
 
 // Icons
 import LockIcon from "@mui/icons-material/Lock";
@@ -13,6 +11,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 export default function Header() {
   const phone = "+91 9999999998";
   const email = "info@simplevedas.com";
+  const theme = useTheme();
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "#FFC13C", boxShadow: "none" }}>
@@ -46,7 +45,7 @@ export default function Header() {
           <Button sx={{ color: "black", textTransform: "none", fontSize: 18 }} startIcon={<KeyIcon />}>
             Register
           </Button>
-          <Button sx={{ color: "black", textTransform: "none", fontSize: 18 }} startIcon={<FavoriteIcon />}>
+          <Button sx={{ color: theme.palette.warning.main, textTransform: "none", fontSize: 18 }} startIcon={<FavoriteIcon />}>
             Support Us
           </Button>
         </Box>
