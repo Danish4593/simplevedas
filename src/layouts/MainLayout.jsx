@@ -8,8 +8,8 @@ export default function MainLayout() {
     <>
       <Header />
       <Navbar />
-      <main>
-        <Outlet /> {/* User pages render here */}
+      <main style={{ padding: 0 }}>
+        <Outlet />
       </main>
     </>
   );
