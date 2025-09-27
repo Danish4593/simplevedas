@@ -1,17 +1,14 @@
-/* Reset default browser spacing */
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+.welcome-h2 {
+  font-size: 45px;
+  font-weight: 300;
+  margin-bottom: 15px;
 }
 
-/* Optional: all elements inherit box-sizing */
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* Add consistent page padding */
-main {
-  padding: 20px; /* adjust as needed */
+.sprituality-h2 {
+      font-size: 36px;
+    color: #ffc13c;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 300;
+    font-style: normal;
 }
