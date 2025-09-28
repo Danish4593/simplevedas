@@ -2,11 +2,10 @@ import { useRef } from "react";
 import Slider from "react-slick";
 import CourseCard from "../pages/CourseCard"; // MUI version
 import coursesImg from "../assets/images/course.png";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Box, Typography, Button, Stack } from "@mui/material";
+import { Box, Typography, Button, Stack, useTheme } from "@mui/material";
 
 const courses = [
   { image: coursesImg, title: "Madhurya Kadambini", duration: "17h", tags: ["Bhakti", "Hindi"], price: "₹400", originalPrice: "₹1400" },
@@ -33,19 +32,20 @@ const settings = {
 
 const Courses = () => {
   const sliderRef = useRef();
+  const theme = useTheme();
 
-  return (
+  return (  
     <Box sx={{ bgcolor: "#f1f5f8", py: 6, px: { xs: 2, sm: 6, lg: 12 }, minHeight: "100vh" }}>
       {/* Header */}
       <Box textAlign="center" mb={10} pt={10}>
         <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} mb={2}>
-          <Box sx={{ display: { xs: "none", sm: "block" }, width: 50, height: 2, bgcolor: "warning.main" }} />
+          <Box sx={{ display: { xs: "none", sm: "block" }, width: 50, height: 2, bgcolor: theme.palette.primary.main }} />
           <Typography variant="h3" component="h2" sx={{ fontWeight: 600 }}>
-            Our <Box component="span" sx={{ color: "warning.main" }}>Courses</Box>
+            Our <Box component="span" sx={{ color: theme.palette.primary.main}}>Courses</Box>
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" }, width: 50, height: 2, bgcolor: "warning.main" }} />
+          <Box sx={{ display: { xs: "none", sm: "block" }, width: 50, height: 2, bgcolor: theme.palette.primary.main }} />
         </Stack>
-        <Typography variant="subtitle2" sx={{ color: "text.secondary", letterSpacing: 2 }}>
+        <Typography variant="subtitle2" sx={{ color: "#222", letterSpacing: 2, mt: "6px", textTransform : 'uppercase', fontWeight : 300}}>
           Learn as never before
         </Typography>
       </Box>
@@ -62,10 +62,10 @@ const Courses = () => {
 
         {/* Prev & Next Buttons */}
         <Stack direction="row" justifyContent="center" spacing={2} mt={4}>
-          <Button variant="outlined" color="warning" onClick={() => sliderRef.current.slickPrev()}>
+          <Button variant="outlined" onClick={() => sliderRef.current.slickPrev()}>
             Prev
           </Button>
-          <Button variant="outlined" color="warning" onClick={() => sliderRef.current.slickNext()}>
+          <Button variant="outlined" onClick={() => sliderRef.current.slickNext()}>
             Next
           </Button>
         </Stack>
