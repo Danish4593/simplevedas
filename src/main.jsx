@@ -2,37 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
-import './index.css';
-
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-
-// Create custom theme
-const theme = createTheme({
-  typography : {
-    fontFamily:[
-      '"Roboto"',
-      '"Open Sans"',
-      'ui-sans-serif',
-      'system-ui',
-      'sans-serif',
-    ]
-  },
-  palette: {
-    primary: {
-      main: "#FFC13C", // your custom primary color
-    },
-    secondary: {
-      main: "#2f2f2f", // optional
-    },
-    warning : {
-      main : '#800000'
-    }
-  },
-});
+import "./index.css";
+import theme from "./theme";
+import { ThemeProvider, CssBaseline} from "@mui/material";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+        <CssBaseline />
       <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
