@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'; // Free Lea
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined'; // Practical (Lightbulb)
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'; // 4 Levels (List/Hamburger)
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty'; // Pace (Hourglass)
-
+import backgroundImage from '../assets/images/questionaris.webp';
 const SimpleVedasSection = () => {
   const featureBoxes = [
     {
@@ -45,7 +45,7 @@ const SimpleVedasSection = () => {
   return (
     <Box
       sx={{
-        backgroundColor: '#2b2c2e', // Dark background
+        backgroundImage: `url(${backgroundImage})`,
         py: 8, // Vertical padding
         px: 2, // Horizontal padding
         display: 'flex',
@@ -57,12 +57,7 @@ const SimpleVedasSection = () => {
         variant="h4" 
         component="h2" 
         gutterBottom 
-        sx={{ 
-          color: 'white', 
-          mb: 6, 
-          fontWeight: 'bold',
-          textAlign: 'center'
-        }}
+        className='why-simplevedas-h2'
       >
         Why Simple Vedas?
       </Typography>
@@ -70,34 +65,69 @@ const SimpleVedasSection = () => {
       <Grid container spacing={3} justifyContent="center" maxWidth="lg">
         {featureBoxes.map((feature, index) => (
           <Grid 
-            item 
-            xs={12} // Full width on extra-small (mobile)
-            sm={6}  // Half width on small (tablet) and up, FORCING 2 COLUMNS
+            size={4} 
+            xs={12}
+            sm={6}
             key={index}
           >
-            <Paper
-              elevation={0} 
-              sx={{
-                backgroundColor: '#fbc02d', // Yellow background
-                p: 3,
-                height: '100%', 
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-start',
-                alignItems: 'flex-start',
-                borderRadius: 0, // Sharp corners
-              }}
-            >
-              <Box sx={{ mb: 1.5, color: '#2b2c2e' }}>{feature.icon}</Box>
-              <Typography variant="h6" component="h3" sx={{ color: '#2b2c2e', fontWeight: 'bold', mb: 0.5 }}>
-                {feature.title}
-              </Typography>
-              {/* The short underline separator */}
-              <Box sx={{ width: '40px', height: '2px', backgroundColor: '#2b2c2e', mb: 2 }} /> 
-              <Typography variant="body2" sx={{ color: '#2b2c2e' }}>
-                {feature.description}
-              </Typography>
-            </Paper>
+          <Paper
+  elevation={0}
+  sx={{
+    backgroundColor: '#fbc02d', // default yellow background
+    p: 3,
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    borderRadius: 0,
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      backgroundColor: '#fff', // background white
+      '& .icon': {
+        color: '#fbc02d', // icon yellow
+      },
+      '& .underline': {
+        backgroundColor: '#fbc02d', // underline yellow
+      },
+    },
+  }}
+>
+  {/* Logo/Icon */}
+  <Box
+    className="icon"
+    sx={{ mb: 1.5, color: '#2b2c2e', transition: 'color 0.3s ease' }}
+  >
+    {feature.icon}
+  </Box>
+
+  {/* Title */}
+  <Typography
+    variant="h6"
+    component="h3"
+    sx={{ color: '#2b2c2e', fontWeight: 'bold', mb: 0.5 }}
+  >
+    {feature.title}
+  </Typography>
+
+  {/* Underline */}
+  <Box
+    className="underline"
+    sx={{
+      width: '40px',
+      height: '2px',
+      backgroundColor: '#2b2c2e',
+      mb: 2,
+      transition: 'background-color 0.3s ease',
+    }}
+  />
+
+  {/* Description */}
+  <Typography variant="body2" sx={{ color: '#2b2c2e' }}>
+    {feature.description}
+  </Typography>
+          </Paper>
+
           </Grid>
         ))}
       </Grid>
