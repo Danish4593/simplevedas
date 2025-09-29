@@ -5,7 +5,6 @@ import ScientificSpirituality from "../pages/ScientificSpirituality";
 import Testimonials from "../pages/Testimonials";
 import Courses from "../pages/Courses";
 import WisdomQuotes from "../pages/WisdomQuotes";
-import NewsLetter from "../pages/NewsLetter";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
     <ScientificSpirituality/>
     <Testimonials/>
     <WisdomQuotes/>
-    <NewsLetter/>
     </>
   )
 }
