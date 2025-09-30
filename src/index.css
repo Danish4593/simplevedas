@@ -21,3 +21,20 @@
     font-style: normal;
     margin-bottom : 20px;
 }
+
+.breadcrump {
+    font-family: Raleway;
+    text-transform: capitalize;
+    color: #ffffff;
+}
+
+.breadcrumb {
+    clear: both;
+    color: #fff;
+    float: left;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}

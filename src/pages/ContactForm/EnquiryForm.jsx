@@ -30,7 +30,7 @@ export default function EnquiryForm() {
 
   return (
     <Box>
-      <Typography variant="h4" fontWeight="bold" sx={{ mb: 1 }}>
+      <Typography variant="h4" fontWeight="bold" sx={{ mb: 1, fontSize:"45px" }}>
         Enquiry <span style={{ color: "#fbbf24" }}>Form</span>
       </Typography>
       <Divider sx={{ width: 60, borderBottomWidth: 3, bgcolor: "#fbbf24", mb: 2 }} />

@@ -14,7 +14,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 export default function ContactInfo() {
     return(
        <Box sx={{ pr: { md: 4 } }}>
-      <Typography variant="h4" fontWeight="bold" sx={{ mb: 1 }}>
+      <Typography variant="h4" fontWeight="bold" sx={{ mb: 1, fontSize:"45px" }}>
         Contact <span style={{ color: '#fbbf24' }}>Info</span>
       </Typography>
       <Divider

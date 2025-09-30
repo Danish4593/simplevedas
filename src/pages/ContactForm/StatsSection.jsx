@@ -1,103 +1,109 @@
 import React from 'react';
 import { BookOpen, GraduationCap, Globe, Feather } from 'lucide-react';
 import { Box, Paper, Grid, Typography, Container } from '@mui/material';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SchoolIcon from '@mui/icons-material/School';
+import PublicIcon from '@mui/icons-material/Public';
+import CreateIcon from '@mui/icons-material/Create';
 
-const StatsSection = () => {
+export default function StatsSection() {
   const stats = [
     {
-      icon: BookOpen,
+      icon: <MenuBookIcon sx={{ fontSize: 40 }} />,
       number: '20+',
       label: 'COMPLETE COURSES'
     },
     {
-      icon: GraduationCap,
+      icon: <SchoolIcon sx={{ fontSize: 40 }} />,
       number: '12966+',
       label: 'STUDENTS ENROLLED'
     },
     {
-      icon: Globe,
+      icon: <PublicIcon sx={{ fontSize: 40 }} />,
       number: '22+',
       label: 'COUNTRIES REACHED'
     },
     {
-      icon: Feather,
+      icon: <CreateIcon sx={{ fontSize: 40 }} />,
       number: '1095+',
       label: 'DAYS OF SERVICE'
     }
   ];
 
   return (
-    <Box>
-        <Grid container spacing={4}>
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <Paper
-                  elevation={0}
+        <Grid container spacing={4} sx={{marginBottom : "25px"}}>
+          {stats.map((stat, index) => (
+            <Grid item xs={12} sm={6} md={3} size={3} key={index}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  position: 'relative',
+                  '&:not(:last-child)::after': {
+                    content: '""',
+                    position: 'absolute',
+                    right: 0,
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    height: '80%',
+                    width: '1px',
+                    backgroundColor: '#e0e0e0',
+                    display: { xs: 'none', md: 'block' }
+                  }
+                }}
+              >
+                {/* Icon */}
+                <Box
                   sx={{
-                    p: 4,
-                    textAlign: 'center',
-                    bgcolor: 'white',
-                    borderRadius: 2,
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.12)'
-                    }
+                    color: '#333',
+                    mb: 2
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: 80,
-                      height: 80,
-                      borderRadius: '50%',
-                      bgcolor: '#f5f5f5',
-                      color: '#1976d2',
-                      mb: 2
-                    }}
-                  >
-                    <Icon size={48} strokeWidth={1.5} />
-                  </Box>
-                  <Box
-                    sx={{
-                      width: 40,
-                      height: 3,
-                      bgcolor: '#FFC107',
-                      margin: '0 auto 16px'
-                    }}
-                  />
-                  <Typography
-                    variant="h3"
-                    component="div"
-                    sx={{
-                      fontWeight: 700,
-                      mb: 1,
-                      color: '#333'
-                    }}
-                  >
-                    {stat.number}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: '#666',
-                      fontWeight: 500,
-                      letterSpacing: '0.5px'
-                    }}
-                  >
-                    {stat.label}
-                  </Typography>
-                </Paper>
-              </Grid>
-            );
-          })}
-        </Grid>
-    </Box>
-  );
-};
+                  {stat.icon}
+                </Box>
 
-export default StatsSection;
+                {/* Yellow underline */}
+                <Box
+                  sx={{
+                    width: '50px',
+                    height: '3px',
+                    backgroundColor: '#FDB54A',
+                    mb: 2
+                  }}
+                />
+
+                {/* Number */}
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontSize: { xs: '32px', md: '42px' },
+                    fontWeight: 400,
+                    color: '#333',
+                    mb: 1,
+                    lineHeight: 1.2
+                  }}
+                >
+                  {stat.number}
+                </Typography>
+
+                {/* Label */}
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '12px', md: '13px' },
+                    fontWeight: 500,
+                    color: '#666',
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase'
+                  }}
+                >
+                  {stat.label}
+                </Typography>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+  );
+}
