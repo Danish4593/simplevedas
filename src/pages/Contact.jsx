@@ -1,18 +1,12 @@
 import * as React from 'react';
-import EnquiryFrom from "../pages/ContactForm/EnquiryForm"
-import ContactInfo from "../pages/ContactForm/ContactInfo"
-import Container from '@mui/material/Container';
+import {ContactInfo, EnquiryFrom, StatsSection, BreadCrump, Map} from "../index"
 import { styled } from '@mui/material/styles';
-import {Box, Paper, Grid, Typography, CardMedia} from '@mui/material';
-import Map from "../pages/ContactForm/Map"
-import StatsSection from "./ContactForm/StatsSection";
-import BreadCrump from "../components/BreadCrump";
-
+import {Grid, Container} from '@mui/material';
 
 export default function Contact() {
   return (
     <>
-      <BreadCrump/>
+      <BreadCrump title="Contact"/>
       <Container sx={{ marginTop : "85px"}}>
           <Grid container spacing={2}>
           <Grid size={6}>

@@ -122,7 +122,7 @@ export default function Header() {
 
             <Button
               component={Link}
-              to="/course"
+              to="/courses"
               sx={{
                 color: "black",
                 textTransform: "none",

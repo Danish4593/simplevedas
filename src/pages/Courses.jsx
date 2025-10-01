@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Slider from "react-slick";
-import CourseCard from "../pages/CourseCard"; // MUI version
+import { CourseCard } from "../index"; 
 import coursesImg from "../assets/images/course.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

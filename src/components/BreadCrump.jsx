@@ -3,7 +3,7 @@ import { Box, Typography, Link } from "@mui/material";
 import breadCrumpImage from "../assets/images/breadcrump.jpg";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
-export default function BreadCrump() {
+export default function BreadCrump({...props}) {
   return (
   <Box sx={{ position: 'relative', width: '100%' }}>
         <img 
@@ -32,7 +32,7 @@ export default function BreadCrump() {
               textTransform: 'uppercase',
             }}
           >
-            CONTACT
+         {props.title}
           </Typography>
           
           {/* Breadcrumb */}
@@ -47,14 +47,14 @@ export default function BreadCrump() {
             }}
           >
             <Typography component="span" sx={{ fontSize: 'inherit' }}>
-              HOME
+              Home
             </Typography>
             
             {/* Circle Arrow */}
                 <ArrowCircleRightIcon/>
             
             <Typography component="span" sx={{ fontSize: '17px' }}>
-              Contact
+              {props.title}
             </Typography>
           </Box>
         </Box>
