@@ -1,25 +1,41 @@
-import React, { useState } from "react";
-import { TextField, Button, Box } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { TextField, Button, Typography } from "@mui/material";
+import { apiFetch } from "../../../api/api.js"; // Your api.js helper
 
 export default function HeaderPage() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Fetch latest header details on page load
+  useEffect(() => {
+    const fetchHeaderDetails = async () => {
+      try {
+        const data = await apiFetch("/header-details"); // GET endpoint
+        console.log(data, 'dddddd')
+        if (data) {
+          // Assuming API returns single object
+          setPhone(data.phone || "");
+          setEmail(data.email || "");
+        }
+      } catch (error) {
+        console.error("Failed to fetch header details:", error);
+      }
+    };
+
+    fetchHeaderDetails();
+  }, []);
+
+  // Submit updated header details
   const handleSubmit = async () => {
     setLoading(true);
-
     try {
-      const response = await fetch("https://example.com/api/submit", {
+      const response = await apiFetch("/header-details", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, email }),
       });
-
-      const data = await response.json();
-      console.log("API response:", data);
+      const data = await response;
       alert("Submitted successfully!");
     } catch (error) {
       console.error("API error:", error);

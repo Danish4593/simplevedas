@@ -121,6 +121,23 @@ export default function AdminLayout() {
           <ListItem disablePadding>
             <ListItemButton
               component={Link}
+              to="/admin/welcome-page"
+              selected={location.pathname === "/admin/welcome-page"}
+              sx={{
+                "&.Mui-selected": { backgroundColor: "#ffe6a1" },
+                "&.Mui-selected:hover": { backgroundColor: "#ffd84d" },
+              }}
+            >
+              <ListItemIcon>
+                <BlurLinearIcon />
+              </ListItemIcon>
+              {open && <ListItemText primary="Welcome Page" />}
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton
+              component={Link}
               to="/admin/settings"
               selected={location.pathname === "/admin/settings"}
               sx={{
