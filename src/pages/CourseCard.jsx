@@ -1,5 +1,5 @@
 
-import { Card, CardMedia, CardContent, Typography, Chip, Box, Stack } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, Chip, Box, Stack , Button} from "@mui/material";
 
 const CourseCard = ({ image, title, duration, tags, price, originalPrice }) => {
   return (
@@ -33,7 +33,16 @@ const CourseCard = ({ image, title, duration, tags, price, originalPrice }) => {
       <CardContent>
         <Stack direction="row" spacing={1} flexWrap="wrap" mb={2}>
           {tags.map((tag, idx) => (
-            <Chip key={idx} label={tag} size="small" color="warning" sx={{ cursor: "pointer" }} />
+            <Button key={idx} size="small" variant="contained" href="#contained-buttons"
+            sx={{
+              "&:hover": {
+                backgroundColor: "#021844", 
+                color:"#fff"
+              },
+            }}
+            >
+              {tag}
+            </Button>
           ))}
         </Stack>
 

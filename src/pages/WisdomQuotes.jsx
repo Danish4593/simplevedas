@@ -6,6 +6,8 @@ import embaraceQuote from "../assets/images/embrace.jpg";
 import faithQuote from "../assets/images/faith.png";
 import relationshipQuote from "../assets/images/relationships.jpg";
 import weaknessesQuote from "../assets/images/weekness.jpg";
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
 const quotes = [
   {
@@ -34,6 +36,17 @@ const WisdomQuotes = () => {
   const YellowColor = '#ffc13c';
   const BackgroundColor = '#f1f5f8'; // Light gray background
   const DarkTextColor = '#374151'; // Equivalent to gray-800
+
+  const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: (theme.vars ?? theme).palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
   return (
     <Box
@@ -92,54 +105,103 @@ const WisdomQuotes = () => {
           />
         </Box>
 
-        {/* Grid of Quotes (Image Cards) */}
-        <Grid container spacing={{ xs: 3, sm: 4 }} justifyContent="center">
-          {quotes.map((quote, index) => (
-            <Grid 
-              item 
-              xs={12}      // 1 column on extra-small
-              sm={6}       // 2 columns on small
-              md={4}       // 3 columns on medium (if there were 12 items)
-              lg={3}       // 4 columns on large (for 4 items total)
-              key={index}
-            >
-              <Card
-                elevation={4} // Equivalent to a shadow-lg
-                sx={{
-                  position: 'relative',
-                  borderRadius: 1, // Rounded corners
-                  overflow: 'hidden',
-                  border: '1px solid #e5e7eb', // border-gray-200
-                  cursor: 'pointer',
-                  // Hover effect (scale-105)
-                  transition: 'transform 300ms ease-in-out',
-                  '&:hover': {
-                    transform: 'scale(1.03)', 
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.2)', // Stronger shadow on hover
-                  },
-                }}
-              >
-                {/* Image Media */}
-                <CardMedia
-                  component="img"
-                  image={quote.image}
-                  alt={`Quote ${index + 1}`}
-                  sx={{
-                    width: '100%',
-                    // Responsive height for the image area
-                    height: { xs: 224, sm: 256, md: 288, lg: 320 }, 
-                    objectFit: 'cover',
-                  }}
-                />
-                
-                {/* Overlay Text/Quote (The original had no overlay text, but 
-                    if you wanted to add it, this is where you'd put it) 
-                
-                // For now, we only render the image, matching the original code's output.
-                */}
-              </Card>
-            </Grid>
-          ))}
+        <Grid container spacing={4}>
+          <Grid size={3}>
+            <Card
+            elevation={4}
+            sx={{
+              position: 'relative',
+              borderRadius: 1,
+              overflow: 'hidden',
+              border: '1px solid #e5e7eb',
+              cursor: 'pointer',
+              transition: 'transform 300ms ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.03)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+              },
+            }}
+        >
+          <CardMedia
+            component="img"
+            image={quotes[0].image}
+            alt="Quote 1"
+            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
+          />
+            </Card>
+          </Grid>
+          <Grid size={3}>
+            <Card
+            elevation={4}
+            sx={{
+              position: 'relative',
+              borderRadius: 1,
+              overflow: 'hidden',
+              border: '1px solid #e5e7eb',
+              cursor: 'pointer',
+              transition: 'transform 300ms ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.03)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+              },
+            }}
+        >
+          <CardMedia
+            component="img"
+            image={quotes[1].image}
+            alt="Quote 1"
+            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
+          />
+            </Card>
+          </Grid>
+          <Grid size={3}>
+            <Card
+            elevation={4}
+            sx={{
+              position: 'relative',
+              borderRadius: 1,
+              overflow: 'hidden',
+              border: '1px solid #e5e7eb',
+              cursor: 'pointer',
+              transition: 'transform 300ms ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.03)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+              },
+            }}
+        >
+          <CardMedia
+            component="img"
+            image={quotes[2].image}
+            alt="Quote 1"
+            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
+          />
+            </Card>
+          </Grid>
+          <Grid size={3}>
+            <Card
+            elevation={4}
+            sx={{
+              position: 'relative',
+              borderRadius: 1,
+              overflow: 'hidden',
+              border: '1px solid #e5e7eb',
+              cursor: 'pointer',
+              transition: 'transform 300ms ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.03)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+              },
+            }}
+        >
+          <CardMedia
+            component="img"
+            image={quotes[0].image}
+            alt="Quote 1"
+            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
+          />
+            </Card>
+          </Grid>
         </Grid>
       </Box>
     </Box>

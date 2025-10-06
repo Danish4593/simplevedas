@@ -1,32 +1,36 @@
 import React from 'react';
 import { Box, Typography, Button, Grid, Card, CardContent, CardMedia } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import embaraceQuote from "../assets/images/embrace.jpg";
+import faithQuote from "../assets/images/faith.png";
+import relationshipQuote from "../assets/images/relationships.jpg";
+import weaknessesQuote from "../assets/images/weekness.jpg";
 
 const ScientificSpirituality = () => {
   const mediaContent = [
     {
       type: 'image',
-      src: 'https://via.placeholder.com/250x150/f0e68c/000000?text=Does+God+Exist%3F', // Placeholder for "Does God Exist?" image
+      src: embaraceQuote,
       alt: 'Does God Exist?',
       title: '', // No title text overlaid
     },
     {
       type: 'image',
-      src: 'https://via.placeholder.com/250x150/f0e68c/000000?text=Goloka+Vrindavan', // Placeholder for "Goloka Vrindavan" image
+      src: faithQuote,
       alt: 'Goloka Vrindavan',
       title: 'Goloka Vrindavan',
       titleBgColor: '#fbc02d', // Yellow background for title
     },
     {
       type: 'image',
-      src: 'https://via.placeholder.com/250x150/f0e68c/000000?text=Sri+Nrsimha+Kavacha', // Placeholder for "Sri Nrsimha Kavacha Mantra" image
+      src: relationshipQuote,
       alt: 'Sri Nrsimha Kavacha Mantra',
       title: 'Sri Nrsimha Kavacha Mantra',
       titlePosition: 'bottom', // Title at the bottom
     },
     {
       type: 'image',
-      src: 'https://via.placeholder.com/250x150/f0e68c/000000?text=Mitra', // Placeholder for "Mitra" image
+      src: weaknessesQuote,
       alt: 'Mitra',
       title: 'मित्र', // Mitra text in Hindi
       titlePosition: 'bottom',
@@ -118,15 +122,15 @@ const ScientificSpirituality = () => {
         {mediaContent.map((item, index) => (
           <Card
             key={index}
-            elevation={0} // No shadow
+            elevation={0}
             sx={{
-              width: 250, // Fixed width for each card as in the image
-              height: 150, // Fixed height
-              borderRadius: 0, // Sharp corners
+              width: 250,
+              height: 150,
+              borderRadius: 0,
               display: 'flex',
               flexDirection: 'column',
-              position: 'relative', // For absolute positioning of titles
-              backgroundColor: item.titleBgColor || 'transparent', // Apply yellow background if specified
+              position: 'relative',
+              backgroundColor: item.titleBgColor || 'transparent',
             }}
           >
             {item.type === 'image' && (

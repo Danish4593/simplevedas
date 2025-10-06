@@ -39,8 +39,6 @@ const NewsLetter = () => {
   // Function to handle form submission (e.g., prevent default behavior)
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Logic for sending the email address goes here
-    console.log('Newsletter submitted!');
   };
 
   return (
@@ -59,7 +57,7 @@ const NewsLetter = () => {
         <Grid container spacing={4} component="form" onSubmit={handleSubmit}>
           
           {/* Left column: Title */}
-          <Grid item xs={12} md={6}>
+          <Grid size={6} item xs={12} md={6}>
             <Typography
               component="h2"
               sx={{
@@ -76,7 +74,7 @@ const NewsLetter = () => {
           </Grid>
           
           {/* Right column: Input and Button */}
-          <Grid item xs={12} md={6}>
+          <Grid size={6} item xs={12} md={6}>
             <Box
               sx={{
                 display: 'flex',
