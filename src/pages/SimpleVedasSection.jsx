@@ -1,14 +1,20 @@
 import React from 'react';
-import { Box, Typography, Grid, Paper } from '@mui/material';
-// Importing icons that match the visual representation
-import SchoolIcon from '@mui/icons-material/SchoolOutlined'; // Systematic (Cap)
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline'; // Quiz (?)
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'; // Free Learning (Heart)
-import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined'; // Practical (Lightbulb)
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'; // 4 Levels (List/Hamburger)
-import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty'; // Pace (Hourglass)
+import { Box, Typography, Grid, Paper, useTheme, useMediaQuery } from '@mui/material';
+
+// Icons
+import SchoolIcon from '@mui/icons-material/SchoolOutlined';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+
 import backgroundImage from '../assets/images/questionaris.webp';
+
 const SimpleVedasSection = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const featureBoxes = [
     {
       icon: <SchoolIcon sx={{ fontSize: 40 }} />,
@@ -46,88 +52,120 @@ const SimpleVedasSection = () => {
     <Box
       sx={{
         backgroundImage: `url(${backgroundImage})`,
-        py: 8, // Vertical padding
-        px: 2, // Horizontal padding
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        py: { xs: 6, md: 10 },
+        px: { xs: 2, sm: 4 },
+        textAlign: 'center',
       }}
     >
-      <Typography 
-        variant="h4" 
-        component="h2" 
-        gutterBottom 
-        className='why-simplevedas-h2'
+      {/* Title */}
+      <Typography
+        variant={isMobile ? 'h5' : 'h4'}
+        component="h2"
+        gutterBottom
+        sx={{
+          fontWeight: 600,
+          color: '#2b2c2e',
+          mb: { xs: 4, md: 6 },
+        }}
       >
         Why Simple Vedas?
       </Typography>
 
-      <Grid container spacing={3} justifyContent="center" maxWidth="lg">
+      {/* Grid */}
+      <Grid
+        container
+        spacing={{ xs: 2, sm: 3, md: 4 }}
+        justifyContent="center"
+        alignItems="center"
+        maxWidth="lg"
+        sx={{ margin: '0 auto' }}
+      >
         {featureBoxes.map((feature, index) => (
-          <Grid 
-            size={4} 
+          <Grid
+            item
             xs={12}
             sm={6}
+            md={4}
             key={index}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
           >
-          <Paper
-  elevation={0}
-  sx={{
-    backgroundColor: '#fbc02d', // default yellow background
-    p: 3,
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    borderRadius: 0,
-    transition: 'all 0.3s ease',
-    '&:hover': {
-      backgroundColor: '#fff', // background white
-      '& .icon': {
-        color: '#fbc02d', // icon yellow
-      },
-      '& .underline': {
-        backgroundColor: '#fbc02d', // underline yellow
-      },
-    },
-  }}
->
-  {/* Logo/Icon */}
-  <Box
-    className="icon"
-    sx={{ mb: 1.5, color: '#2b2c2e', transition: 'color 0.3s ease' }}
-  >
-    {feature.icon}
-  </Box>
+            <Paper
+              elevation={3}
+              sx={{
+                backgroundColor: '#fbc02d',
+                p: { xs: 2.5, sm: 3 },
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                borderRadius: 2,
+                textAlign: 'left',
+                width: { xs: 260, sm: 280, md: 300 }, // 👈 fixed width
+                height: { xs: 200, sm: 220, md: 240 }, // 👈 fixed height (same as width)
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: '#fff',
+                  '& .icon': { color: '#fbc02d' },
+                  '& .underline': { backgroundColor: '#fbc02d' },
+                },
+              }}
+            >
+              {/* Icon + Title */}
+              <Box>
+                <Box
+                  className="icon"
+                  sx={{
+                    mb: 1.5,
+                    color: '#2b2c2e',
+                    transition: 'color 0.3s ease',
+                    fontSize: { xs: 35, md: 40 },
+                  }}
+                >
+                  {feature.icon}
+                </Box>
 
-  {/* Title */}
-  <Typography
-    variant="h6"
-    component="h3"
-    sx={{ color: '#2b2c2e', fontWeight: 'bold', mb: 0.5 }}
-  >
-    {feature.title}
-  </Typography>
+                <Typography
+                  variant="h6"
+                  component="h3"
+                  sx={{
+                    color: '#2b2c2e',
+                    fontWeight: 'bold',
+                    mb: 0.5,
+                    fontSize: { xs: '1rem', sm: '1.1rem' },
+                  }}
+                >
+                  {feature.title}
+                </Typography>
 
-  {/* Underline */}
-  <Box
-    className="underline"
-    sx={{
-      width: '40px',
-      height: '2px',
-      backgroundColor: '#2b2c2e',
-      mb: 2,
-      transition: 'background-color 0.3s ease',
-    }}
-  />
+                <Box
+                  className="underline"
+                  sx={{
+                    width: 40,
+                    height: 2,
+                    backgroundColor: '#2b2c2e',
+                    mb: 2,
+                    transition: 'background-color 0.3s ease',
+                  }}
+                />
+              </Box>
 
-  {/* Description */}
-  <Typography variant="body2" sx={{ color: '#2b2c2e' }}>
-    {feature.description}
-  </Typography>
-          </Paper>
-
+              {/* Description */}
+              <Typography
+                variant="body2"
+                sx={{
+                  color: '#2b2c2e',
+                  fontSize: { xs: '0.9rem', sm: '1rem' },
+                  mt: 'auto',
+                }}
+              >
+                {feature.description}
+              </Typography>
+            </Paper>
           </Grid>
         ))}
       </Grid>

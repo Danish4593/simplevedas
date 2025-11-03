@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import Slider from "react-slick";
-import CourseCard from "../pages/CourseCard"; // MUI version
+import CourseCard from "../pages/CourseCard";
 import coursesImg from "../assets/images/course.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Box, Typography, Button, Stack, useTheme } from "@mui/material";
+import { Box, Typography, Button, Stack, useTheme, useMediaQuery } from "@mui/material";
 
 const courses = [
   { image: coursesImg, title: "Madhurya Kadambini", duration: "17h", tags: ["Bhakti", "Hindi"], price: "₹400", originalPrice: "₹1400" },
@@ -19,56 +19,80 @@ const courses = [
 const settings = {
   dots: true,
   infinite: true,
-  speed: 500,
+  speed: 600,
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 3500,
+  swipeToSlide: true,
   responsive: [
-    { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-    { breakpoint: 600, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+    { breakpoint: 1200, settings: { slidesToShow: 2 } },
+    { breakpoint: 900, settings: { slidesToShow: 2 } },
+    { breakpoint: 600, settings: { slidesToShow: 1, dots: true, arrows: false } },
   ],
 };
 
 const Courses = () => {
   const sliderRef = useRef();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  return (  
-    <Box sx={{ bgcolor: "#f1f5f8", py: 6, px: { xs: 2, sm: 6, lg: 12 }, minHeight: "100vh" }}>
+  return (
+    <Box
+      sx={{
+        bgcolor: "#f1f5f8",
+        py: { xs: 4, sm: 6, md: 8 },
+        px: { xs: 2, sm: 4, md: 8, lg: 12 },
+      }}
+    >
       {/* Header */}
-      <Box textAlign="center" mb={10} pt={10}>
-        <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} mb={2}>
+      <Box textAlign="center" mb={{ xs: 5, sm: 8, md: 6 }} pt={{ xs: 2, sm: 2, md: 2 }}>
+        <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} mb={2} sx={{ flexWrap: "wrap" }}>
           <Box sx={{ display: { xs: "none", sm: "block" }, width: 50, height: 2, bgcolor: theme.palette.primary.main }} />
-          <Typography variant="h3" component="h2" sx={{ fontWeight: 600 }}>
-            Our <Box component="span" sx={{ color: theme.palette.primary.main}}>Courses</Box>
+          <Typography
+            variant={isMobile ? "h5" : "h3"}
+            component="h2"
+            sx={{ fontWeight: 600, textAlign: "center" }}
+          >
+            Our <Box component="span" sx={{ color: theme.palette.primary.main }}>Courses</Box>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" }, width: 50, height: 2, bgcolor: theme.palette.primary.main }} />
         </Stack>
-        <Typography variant="subtitle2" sx={{ color: "#222", letterSpacing: 2, mt: "6px", textTransform : 'uppercase', fontWeight : 300}}>
+        <Typography
+          variant="subtitle2"
+          sx={{
+            color: "#222",
+            letterSpacing: 2,
+            textTransform: "uppercase",
+            fontWeight: 300,
+            fontSize: { xs: 12, sm: 14 },
+          }}
+        >
           Learn as never before
         </Typography>
       </Box>
 
       {/* Slider */}
-      <Box position="relative" px={{ xs: 0, sm: 4 }}>
+      <Box position="relative" px={{ xs: 0, sm: 2, md: 4 }}>
         <Slider ref={sliderRef} {...settings}>
           {courses.map((course, index) => (
-            <Box key={index} px={1}>
+            <Box key={index} px={{ xs: 1, sm: 2 }}>
               <CourseCard {...course} />
             </Box>
           ))}
         </Slider>
 
-        {/* Prev & Next Buttons */}
-        <Stack direction="row" justifyContent="center" spacing={2} mt={4}>
-          <Button variant="outlined" onClick={() => sliderRef.current.slickPrev()}>
-            Prev
-          </Button>
-          <Button variant="outlined" onClick={() => sliderRef.current.slickNext()}>
-            Next
-          </Button>
-        </Stack>
+        {/* Navigation Buttons */}
+        {!isMobile && (
+          <Stack direction="row" justifyContent="center" spacing={2} mt={4}>
+            <Button variant="outlined" onClick={() => sliderRef.current.slickPrev()}>
+              Prev
+            </Button>
+            <Button variant="outlined" onClick={() => sliderRef.current.slickNext()}>
+              Next
+            </Button>
+          </Stack>
+        )}
       </Box>
     </Box>
   );

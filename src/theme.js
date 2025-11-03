@@ -5,11 +5,8 @@ import '@fontsource/open-sans';
 const theme = createTheme({
   typography: {
     fontFamily: [
-      '"Roboto"',
-      '"Open Sans"',
-      'ui-sans-serif',
-      'system-ui',
-      'sans-serif',
+      '"custom-raleway"',
+      'Sans-serif'
     ].join(","),
   },
   h2: {
