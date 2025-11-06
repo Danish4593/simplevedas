@@ -8,12 +8,12 @@ import "slick-carousel/slick/slick-theme.css";
 import { Box, Typography, Button, Stack, useTheme, useMediaQuery } from "@mui/material";
 
 const courses = [
-  { image: coursesImg, title: "Madhurya Kadambini", duration: "17h", tags: ["Bhakti", "Hindi"], price: "₹400", originalPrice: "₹1400" },
-  { image: coursesImg, title: "Madhurya Kadambini", duration: "20h", tags: ["Bhakti"], price: "₹400", originalPrice: "₹1400" },
-  { image: coursesImg, title: "Prabhupada", duration: "22h", tags: ["Bhakti", "English"], price: "Free" },
-  { image: coursesImg, title: "Bhagavad Gita", duration: "25h", tags: ["Philosophy"], price: "₹500", originalPrice: "₹1500" },
-  { image: coursesImg, title: "Yoga and Meditation", duration: "15h", tags: ["Wellness"], price: "₹300" },
-  { image: coursesImg, title: "Sanskrit Basics", duration: "10h", tags: ["Language", "Hindi"], price: "Free" },
+  { image: coursesImg, title: "Madhurya Kadambini", duration: "Ongoing", language: ["Bhakti, Hindi"], price: "400", originalPrice: "1400", startDate: "May 23" },
+  { image: coursesImg, title: "Madhurya Kadambini", duration: "Self-paced", language: ["Bhakti"], price: "400", originalPrice: "1400", startDate: "May 23" },
+  { image: coursesImg, title: "Prabhupada", duration: "Upcoming", language: ["Bhakti English"], price: "Free", originalPrice: "1400", startDate: "May 23" },
+  { image: coursesImg, title: "Bhagavad Gita", duration: "Past", language: ["Philosophy"], price: "500", originalPrice: "1500", startDate: "May 23" },
+  { image: coursesImg, title: "Yoga and Meditation", duration: "Past", language: ["Wellness"], price: "300", originalPrice: "1400", startDate: "May 23" },
+  { image: coursesImg, title: "Sanskrit Basics", duration: "Upcoming", language: ["Bhakti English"], price: "Free", originalPrice: "1400", startDate: "May 23" },
 ];
 
 const settings = {
