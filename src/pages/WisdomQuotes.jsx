@@ -35,7 +35,7 @@ const quotes = [
 const WisdomQuotes = () => {
   const YellowColor = '#ffc13c';
   const BackgroundColor = '#f1f5f8'; // Light gray background
-  const DarkTextColor = '#374151'; // Equivalent to gray-800
+  const DarkTextColor = '#333333'; // Equivalent to gray-800
 
   const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
