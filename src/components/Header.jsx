@@ -24,6 +24,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 // Import your API wrapper
 import { apiFetch } from "../../api/api.js"; // adjust path if needed
+import LoginModal from "../pages/modal/LoginModal";
+import RegisterModal from "../pages/modal/RegisterModal";
 
 export default function Header() {
   const [phone, setPhone] = useState("9987318251");
@@ -78,6 +80,10 @@ export default function Header() {
     </Box>
   );
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: "#FFC13C", boxShadow: "none" }}>
@@ -119,15 +125,19 @@ export default function Header() {
               <Button
                 sx={{ color: "black", textTransform: "none", fontSize: 18 }}
                 startIcon={<LockIcon />}
+                onClick={handleOpen}
               >
                 Login
               </Button>
+              <LoginModal open={open} handleClose={handleClose} />
               <Button
                 sx={{ color: "black", textTransform: "none", fontSize: 18 }}
                 startIcon={<KeyIcon />}
+                onClick={handleOpen}
               >
                 Register
               </Button>
+                <RegisterModal open={open} handleClose={handleClose} />
               <Button
                 sx={{
                   color: theme.palette.warning.main,
