@@ -15,23 +15,22 @@ import CloseIcon from "@mui/icons-material/Close";
 const RegisterModal = ({ open, handleClose }) => {
   return (
     <Modal open={open} onClose={handleClose}>
-      <Box
+     <Box
         sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "630px",
-          maxWidth: "90vw",
-          maxHeight: "90vh",
-          overflow: "auto",
-          p: 0,
-          borderRadius: "20px",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-          background: "linear-gradient(135deg, #e8935f 0%, #d97d52 100%)",
-          textAlign: "center",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "630px",
+            maxWidth: "90vw",
+            p: 0,
+            borderRadius: "20px",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+            background: "radial-gradient(#f3a95c, #dc7d4c)", // ✅ Changed to radial gradient
+            textAlign: "center",
+            overflow: "hidden",
         }}
-      >
+        >
         {/* Close Button */}
         <IconButton
           onClick={handleClose}

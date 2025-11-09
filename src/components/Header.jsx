@@ -81,9 +81,15 @@ export default function Header() {
     </Box>
   );
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const [openLogin, setOpenLogin] = useState(false);
+const [openRegister, setOpenRegister] = useState(false);
+
+const handleOpenLogin = () => setOpenLogin(true);
+const handleCloseLogin = () => setOpenLogin(false);
+
+const handleOpenRegister = () => setOpenRegister(true);
+const handleCloseRegister = () => setOpenRegister(false);
+
 
   return (
     <>
@@ -126,19 +132,19 @@ export default function Header() {
               <Button
                 sx={{ color: "black", textTransform: "none", fontSize: 16 }}
                 startIcon={<LockIcon />}
-                onClick={handleOpen}
+                onClick={handleOpenLogin}
               >
                 <span style={{ color: theme.palette.warning.main }}>Login</span>
               </Button>
-              <LoginModal open={open} handleClose={handleClose} />
+              <LoginModal open={openLogin} handleClose={handleCloseLogin} />
               <Button
                 sx={{ color: "black", textTransform: "none", fontSize: 16 }}
                 startIcon={<KeyIcon />}
-                onClick={handleOpen}
+                onClick={handleOpenRegister}
               >
                 Register
               </Button>
-                <RegisterModal open={open} handleClose={handleClose} />
+                <RegisterModal open={openRegister} handleClose={handleCloseRegister} />
               <Button
                 sx={{
                   color: theme.palette.warning.main,
