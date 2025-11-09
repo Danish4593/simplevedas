@@ -47,12 +47,12 @@ const Courses = () => {
     >
       {/* Header */}
       <Box textAlign="center" mb={{ xs: 5, sm: 8, md: 6 }} pt={{ xs: 2, sm: 2, md: 2 }}>
-        <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} mb={2} sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} mb={1} sx={{ flexWrap: "wrap" }}>
           <Box sx={{ display: { xs: "none", sm: "block" }, width: 50, height: 2, bgcolor: theme.palette.primary.main }} />
           <Typography
             variant={isMobile ? "h5" : "h3"}
             component="h2"
-            sx={{ fontWeight: 600, textAlign: "center" }}
+            sx={{ fontWeight: 600, textAlign: "center", fontFamily: "Roboto", }}
           >
             Our <Box component="span" sx={{ color: theme.palette.primary.main }}>Courses</Box>
           </Typography>
@@ -62,10 +62,9 @@ const Courses = () => {
           variant="subtitle2"
           sx={{
             color: "#222",
-            letterSpacing: 2,
+            letterSpacing: 1,
             textTransform: "uppercase",
-            fontWeight: 300,
-            fontSize: { xs: 12, sm: 14 },
+            fontSize: { xs: 12, sm: 16 },
           }}
         >
           Learn as never before

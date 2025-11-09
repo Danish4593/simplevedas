@@ -146,7 +146,7 @@ export default function WelcomeSection() {
             variant="outlined"
             size="large"
             sx={{
-              borderColor: "#999",
+              borderColor: "#666",
               color: "#666",
               fontSize: { xs: "0.95rem", md: "1rem" },
               px: { xs: 3, sm: 4 },
@@ -154,8 +154,8 @@ export default function WelcomeSection() {
               textTransform: "none",
               borderRadius: 1,
               "&:hover": {
-                borderColor: "#666",
-                backgroundColor: "rgba(0,0,0,0.04)",
+                borderColor: "#FFB74D",
+                backgroundColor: "#FFB74D",
               },
             }}
           >

@@ -29,22 +29,20 @@ const testimonials = [
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // **Auto-slide Logic (useEffect)**
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) =>
-        prevSlide === testimonials.length - 1 ? 0 : prevSlide + 1
-      );
-    }, 4000); // Slides automatically every 4 seconds
-    
-    // Cleanup function to clear the interval when the component unmounts
-    return () => clearInterval(interval);
-  }, []); // Empty dependency array means this runs once on mount
-
   const YellowColor = '#ffc13c';
   const DarkTextColor = '#333333';
 
-  // **Manual Slide Function (Used by the navigation dots)**
+  // Auto-slide every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleSlideChange = (index) => {
     setCurrentSlide(index);
   };
@@ -59,8 +57,7 @@ const Testimonials = () => {
       }}
     >
       <Box sx={{ maxWidth: 'lg', margin: '0 auto', textAlign: 'center' }}>
-        
-        {/* Header Section */}
+        {/* Header */}
         <Box
           sx={{
             display: 'flex',
@@ -69,7 +66,6 @@ const Testimonials = () => {
             mb: { xs: 4, sm: 6 },
           }}
         >
-          {/* Decorative Lines */}
           <Box
             sx={{
               display: { xs: 'none', sm: 'block' },
@@ -86,6 +82,7 @@ const Testimonials = () => {
               fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
               fontWeight: 600,
               color: DarkTextColor,
+              fontFamily: 'Roboto',
             }}
           >
             Hear it from{' '}
@@ -104,88 +101,88 @@ const Testimonials = () => {
           />
         </Box>
 
-        {/* Testimonial Content Slider */}
+        {/* Slider */}
         <Box
           sx={{
             maxWidth: 'md',
             margin: '0 auto',
             position: 'relative',
             overflow: 'hidden',
-            height: { xs: 360, sm: 380, md: 420 }, 
+            height: { xs: 360, sm: 380, md: 420 },
           }}
         >
-          {testimonials.map((testimonial, index) => (
-            <Box
-              key={index}
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                // Transition for fade effect
-                transition: 'opacity 1000ms ease-in-out', 
-                opacity: index === currentSlide ? 1 : 0,
-                zIndex: index === currentSlide ? 1 : 0, 
-                
-                // Content centering
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                px: { xs: 2, sm: 4 },
-              }}
-            >
-              <Avatar
-                src={testimonial.image}
-                alt={testimonial.name}
+          {/* Sliding Wrapper */}
+          <Box
+            sx={{
+              display: 'flex',
+              width: `${testimonials.length * 100}%`,
+              transform: `translateX(-${currentSlide * (100 / testimonials.length)}%)`,
+              transition: 'transform 1000ms ease-in-out',
+            }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <Box
+                key={index}
                 sx={{
-                  width: { xs: 80, sm: 96 }, 
-                  height: { xs: 80, sm: 96 },
-                  border: `4px solid ${YellowColor}`,
-                  mb: 2,
-                }}
-              />
-              <Typography variant="h6" sx={{ fontWeight: 600, mb: 0.5, color: DarkTextColor }}>
-                {testimonial.name}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
-                {testimonial.title}
-              </Typography>
-
-              <QuoteIcon sx={{ width: 32, height: 32, color: 'grey.400', mb: 3 }} />
-              
-              <Typography
-                variant="h6"
-                component="p"
-                sx={{
-                  color: 'grey.700',
-                  lineHeight: 1.6,
-                  maxWidth: 700,
-                  fontStyle: 'italic',
-                  fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
+                  flex: `0 0 ${100 / testimonials.length}%`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  px: { xs: 2, sm: 4 },
                 }}
               >
-                {`"${testimonial.quote}"`}
-              </Typography>
-            </Box>
-          ))}
+                <Avatar
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  sx={{
+                    width: { xs: 80, sm: 96 },
+                    height: { xs: 80, sm: 96 },
+                    border: `4px solid ${YellowColor}`,
+                    mb: 2,
+                  }}
+                />
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, mb: 0.5, color: DarkTextColor }}
+                >
+                  {testimonial.name}
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
+                  {testimonial.title}
+                </Typography>
+
+                <QuoteIcon sx={{ width: 32, height: 32, color: 'grey.400', mb: 3 }} />
+
+                <Typography
+                  variant="h6"
+                  component="p"
+                  sx={{
+                    color: 'grey.700',
+                    lineHeight: 1.6,
+                    maxWidth: 700,
+                    fontStyle: 'italic',
+                    fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
+                  }}
+                >
+                  {`"${testimonial.quote}"`}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
         </Box>
 
-        {/* Dot Navigation (Manual Slide Control) */}
+        {/* Navigation Dots */}
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: { xs: 4, sm: 6 } }}>
           {testimonials.map((_, index) => (
             <IconButton
               key={index}
-              // Calls the handler to set the current slide when clicked
-              onClick={() => handleSlideChange(index)} 
+              onClick={() => handleSlideChange(index)}
               size="small"
               sx={{
                 p: 0.5,
                 color: index === currentSlide ? YellowColor : 'grey.400',
                 transition: 'color 300ms',
-                '&:hover': {
-                    color: YellowColor,
-                }
+                '&:hover': { color: YellowColor },
               }}
             >
               <FiberManualRecord fontSize="small" />

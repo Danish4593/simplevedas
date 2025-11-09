@@ -135,23 +135,42 @@ export default function Header() {
         {/* Desktop Menu */}
         {!isMobile ? (
           <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-            <Button component={Link} to="/" sx={{ color: "black", textTransform: "none", fontSize: 18 }}>
+            <Button component={Link} to="/" sx={{
+                color: "black",
+                textTransform: "none",
+                fontSize: 20,
+                fontWeight: 500,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent", // prevents default grey hover bg
+                },
+              }}>
               Home
             </Button>
 
             {/* About Menu */}
             <Button
-              sx={{ color: "black", textTransform: "none", fontSize: 18 }}
+              sx={{
+                color: "black",
+                textTransform: "none",
+                fontSize: 20,
+                fontWeight: 500,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent", // prevents default grey hover bg
+                },
+              }}
               endIcon={<ArrowDropDownIcon />}
               onClick={handleAboutClick}
             >
               About
             </Button>
+
             <Menu
               anchorEl={aboutAnchor}
               open={Boolean(aboutAnchor)}
               onClose={handleAboutClose}
-              sx={{ "& .MuiPaper-root": { backgroundColor: "black" } }}
+              sx={{ "& .MuiPaper-root": { backgroundColor: "#333" } }}
             >
               {["Simple Vedas", "Sarila Prabhupada", "Our Inspiration", "Madhusudan Visnu Dev"].map((item) => (
                 <MenuItem
@@ -159,23 +178,59 @@ export default function Header() {
                   onClick={handleAboutClose}
                   component={Link}
                   to={`/about/${item.replace(/\s+/g, "-").toLowerCase()}`}
-                  sx={{ color: "white", "&:hover": { backgroundColor: "#333" } }}
+                  sx={{ color: "white", "&:hover": { backgroundColor: "#333", color: "#FFB74D" } }}
                 >
                   {item}
                 </MenuItem>
               ))}
             </Menu>
 
-            <Button component={Link} to="/course" sx={{ color: "black", textTransform: "none", fontSize: 18 }}>
+            <Button component={Link} to="/course" sx={{
+                color: "black",
+                textTransform: "none",
+                fontSize: 20,
+                fontWeight: 500,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent", // prevents default grey hover bg
+                },
+              }}>
               Course
             </Button>
-            <Button component={Link} to="/quotes" sx={{ color: "black", textTransform: "none", fontSize: 18 }}>
+            <Button component={Link} to="/quotes" sx={{
+                color: "black",
+                textTransform: "none",
+                fontSize: 20,
+                fontWeight: 500,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent", // prevents default grey hover bg
+                },
+              }}>
               Quotes
             </Button>
-            <Button component={Link} to="/shop" sx={{ color: "black", textTransform: "none", fontSize: 18 }}>
+            <Button component={Link} to="/shop" sx={{
+                color: "black",
+                textTransform: "none",
+                fontSize: 20,
+                fontWeight: 500,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent", // prevents default grey hover bg
+                },
+              }}>
               Shop
             </Button>
-            <Button component={Link} to="/contact" sx={{ color: "black", textTransform: "none", fontSize: 18 }}>
+            <Button component={Link} to="/contact" sx={{
+                color: "black",
+                textTransform: "none",
+                fontSize: 20,
+                fontWeight: 500,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent", // prevents default grey hover bg
+                },
+              }}>
               Contact
             </Button>
 

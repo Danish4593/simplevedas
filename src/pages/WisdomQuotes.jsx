@@ -87,6 +87,7 @@ const WisdomQuotes = () => {
               fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
               fontWeight: 600,
               color: DarkTextColor,
+              fontFamily: "Roboto",
             }}
           >
             Wisdom{' '}

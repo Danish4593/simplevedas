@@ -62,23 +62,25 @@ const ScientificSpirituality = () => {
         }}
       >
         <Typography
-          variant="h4"
-          component="h2"
-          className='sprituality-h2'
-          gutterBottom
           sx={{
-            color: '#fbc02d', // Yellow color for the heading
-            fontWeight: 'bold',
+            color: '#ffc13c', // Yellow color for the heading
             mb: 2,
+            fontFamily: "Roboto",
+            fontSize: 36,
+            fontWeight: 300, // camelCase
+            fontStyle: "normal", // camelCase
           }}
+
         >
           Scientific Spirituality
         </Typography>
         <Typography
           variant="body1"
+          spacing={{ xs: 2, sm: 3, md: 4 }}
           sx={{
             color: 'white',
             mb: 4,
+            
           }}
         >
           Scientific study is not limited to the realm of material or physical. It is

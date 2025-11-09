@@ -14,6 +14,7 @@ import {
   ListItemButton,
   ListItemText,
   Divider,
+  Typography
 } from "@mui/material";
 
 // Icons
@@ -112,18 +113,18 @@ export default function Header() {
               <Button
                 component={Link}
                 to="/admin"
-                sx={{ color: "black", textTransform: "none", fontSize: 18 }}
+                sx={{ color: "black", textTransform: "none", fontSize: 16 }}
               >
                 Admin
               </Button>
               <Button
-                sx={{ color: "black", textTransform: "none", fontSize: 18 }}
+                sx={{ color: "black", textTransform: "none", fontSize: 16 }}
                 startIcon={<LockIcon />}
               >
-                Login
+                <span style={{ color: theme.palette.warning.main }}>Login</span>
               </Button>
               <Button
-                sx={{ color: "black", textTransform: "none", fontSize: 18 }}
+                sx={{ color: "black", textTransform: "none", fontSize: 16 }}
                 startIcon={<KeyIcon />}
               >
                 Register
@@ -132,7 +133,7 @@ export default function Header() {
                 sx={{
                   color: theme.palette.warning.main,
                   textTransform: "none",
-                  fontSize: 18,
+                  fontSize: 16,
                 }}
                 startIcon={<FavoriteIcon />}
               >

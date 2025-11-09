@@ -51,23 +51,38 @@ const SimpleVedasSection = () => {
   return (
     <Box
       sx={{
+        position: "relative",
         backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        py: { xs: 6, md: 10 },
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        py: { xs: 6, md: 6 },
         px: { xs: 2, sm: 4 },
-        textAlign: 'center',
+        textAlign: "center",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.25)", // black with 25% opacity
+          zIndex: 1,
+        },
+        "& > *": {
+          position: "relative",
+          zIndex: 2, // ensure your content is above the overlay
+        },
       }}
     >
       {/* Title */}
       <Typography
-        variant={isMobile ? 'h5' : 'h4'}
+        variant={isMobile ? 'h5' : 'h3'}
         component="h2"
         gutterBottom
         sx={{
-          fontWeight: 600,
-          color: '#2b2c2e',
-          mb: { xs: 4, md: 6 },
+          fontWeight: 100,
+          color: '#ffffffcc',
+          mb: { xs: 4, sm: 4, md: 6 },
         }}
       >
         Why Simple Vedas?
