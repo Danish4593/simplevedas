@@ -1,168 +1,74 @@
-import React from "react";
-import guruJiImg from "../assets/images/guruji.png";
-import {
-  Box,
-  Typography,
-  Button,
-  Container,
-  Card,
-  CardMedia,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
-
 export default function WelcomeSection() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
   return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        py: { xs: 6, md: 8 },
-        px: { xs: 2, sm: 3, md: 4 },
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          alignItems: "center",
-          justifyContent: "center",
-          gap: { xs: 5, sm: 6, md: 8 },
-          minHeight: { xs: "auto", md: "80vh" },
-          textAlign: { xs: "center", md: "left" },
-        }}
-      >
-        {/* Left Side - Image */}
-        <Box
-          sx={{
-            flexShrink: 0,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Card
-            sx={{
-              width: { xs: 240, sm: 280, md: 320 },
-              height: { xs: 320, sm: 380, md: 420 },
-              borderRadius: 3,
-              overflow: "hidden",
-              boxShadow: 3,
-            }}
-          >
-            <CardMedia
-              component="img"
-              image={guruJiImg}
-              alt="Guru Ji - Spiritual Guide"
-              sx={{
-                objectFit: "cover",
-                width: "100%",
-                height: "100%",
-              }}
+    <section className="py-12 bg-white flex items-center">
+      <div className="container mx-auto px-8 md:px-20 max-w-6xl">
+        {/* Title - shows first on mobile, hidden on desktop (will be in text content) */}
+        <h2 className="text-3xl md:text-4xl font-light mb-6 text-gray-800 text-center md:hidden" style={{fontFamily: 'serif'}}>
+          Welcome to Simple Vedas
+        </h2>
+        
+        <div className="flex flex-col md:flex-row items-center gap-16">
+          {/* Image - shows second on mobile */}
+          <div className="flex-shrink-0 w-full md:w-1/3 flex justify-center items-center order-1 md:order-none">
+            <img 
+              src="https://i0.wp.com/simplevedas.com/wp-content/uploads/2022/07/2-1.jpg?w=1080&ssl=1" 
+              alt="Guru Ji" 
+              className="max-w-full h-auto max-h-96 object-contain"
             />
-          </Card>
-        </Box>
-
-        {/* Right Side - Content */}
-        <Box
-          sx={{
-            flex: 1,
-             maxWidth: 'auto',
-            ml: { xs: 0, md: 4 },
-          }}
-        >
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={{
-              fontSize: {
-                xs: "2.2rem",
-                sm: "2.8rem",
-                md: "3rem",
-                lg: "3.rem",
-              },
-              fontWeight: 400,
-              color: "#333",
-              mb: 2,
-              lineHeight: 1.2,
-            }}
-          >
-            Welcome to Simple Vedas
-          </Typography>
-
-          {/* Decorative lines */}
-          <Box sx={{ mb: { xs: 3, sm: 4 } }}>
-            <Box
-              sx={{
-                width: 60,
-                height: 2,
-                backgroundColor: "#FFB74D",
-                mb: 0.5,
-                mx: { xs: "auto", md: 0 },
-              }}
-            />
-            <Box
-              sx={{
-                width: 40,
-                height: 2,
-                backgroundColor: "#FFB74D",
-                mx: { xs: "auto", md: 0 },
-              }}
-            />
-          </Box>
-
-          <Typography
-            variant="h4"
-            component="h2"
-            sx={{
-              fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.6rem" },
-              fontWeight: 500,
-              color: "#FFB74D",
-              mb: 3,
-            }}
-          >
-            Making Spirituality Simple for You
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-              lineHeight: 1.8,
-              color: "#555",
-              mb: { xs: 3, sm: 4 },
-              textAlign: { xs: "center", md: "justify" },
-            }}
-          >
-            Simple Vedas aims to bridge the ancient and the modern, the spiritual
-            and the material, the philosophy and the practice — so that one can
-            easily understand, appreciate, and apply the Vedic teachings in daily
-            life, bringing more meaning and joy.
-          </Typography>
-
-          <Button
-            variant="outlined"
-            size="large"
-            sx={{
-              borderColor: "#666",
-              color: "#666",
-              fontSize: { xs: "0.95rem", md: "1rem" },
-              px: { xs: 3, sm: 4 },
-              py: { xs: 1, sm: 1.3 },
-              textTransform: "none",
-              borderRadius: 1,
-              "&:hover": {
-                borderColor: "#FFB74D",
-                backgroundColor: "#FFB74D",
-              },
-            }}
-          >
-            Read More ≫
-          </Button>
-        </Box>
-      </Box>
-    </Container>
+          </div>
+          
+          {/* Text Content */}
+          <div className="w-full md:w-2/3 text-center md:border-r-2 md:pr-8 order-2" style={{borderColor: '#ffb20c'}}>
+            {/* Title - hidden on mobile, shown on desktop */}
+            <h2 className="hidden md:block text-3xl md:text-4xl font-light mb-3 text-gray-800" style={{fontFamily: 'serif'}}>
+              Welcome to Simple Vedas
+            </h2>
+            
+            {/* Orange underline */}
+            <div className="hidden md:flex justify-center items-center gap-3 mb-8">
+              <div className="w-10 h-px" style={{backgroundColor: '#ffb20c'}}></div>
+              <div className="w-6 h-px" style={{backgroundColor: '#ffb20c'}}></div>
+            </div>
+            
+            <h3 className="hidden md:block text-lg md:text-xl font-medium mb-8" style={{color: '#ffb20c'}}>
+              Making Spirituality Simple for You
+            </h3>
+            
+            <p className="text-gray-600 mb-10 leading-relaxed text-sm" style={{textAlign: 'justify'}}>
+              Simple Vedas is to serve as a bridge between the ancient and the modern, between the spiritual and the material, between the philosophy and the practice, so that one can easily understand, appreciate, and apply the Vedic technologies in one's life, bringing to it more meaning and content, and thus enjoy the bliss that we all are really made for.
+            </p>
+            
+            {/* Read More Button */}
+            <div className="flex justify-center">
+              <button 
+                type="button"
+                className="inline-flex items-center gap-2 px-5 py-2 border border-black rounded text-gray-600 transition-colors duration-300 bg-white shadow-sm text-sm"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#ffb20c';
+                  e.currentTarget.style.color = '#000000';
+                  e.currentTarget.style.borderColor = 'transparent';
+                  const arrow = e.currentTarget.querySelector('span');
+                  if (arrow) arrow.style.color = '#000000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '';
+                  e.currentTarget.style.color = '';
+                  e.currentTarget.style.borderColor = '';
+                  const arrow = e.currentTarget.querySelector('span');
+                  if (arrow) arrow.style.color = '#ffb20c';
+                }}
+              >
+                Read More
+                <span className="font-bold" style={{color: '#ffb20c'}}>»</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

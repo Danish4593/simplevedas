@@ -1,198 +1,179 @@
 import React from "react";
 import {
   Modal,
-  Box,
   TextField,
   Button,
   IconButton,
   MenuItem,
   Select,
-  FormControl,
-  InputLabel,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 const RegisterModal = ({ open, handleClose }) => {
   return (
     <Modal open={open} onClose={handleClose}>
-     <Box
-        sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "630px",
-            maxWidth: "90vw",
-            p: 0,
-            borderRadius: "20px",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-            background: "radial-gradient(#f3a95c, #dc7d4c)", // ✅ Changed to radial gradient
-            textAlign: "center",
-            overflow: "hidden",
-        }}
-        >
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] max-w-[90vw] p-0 rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.3)] bg-[radial-gradient(#f3a95c,#dc7d4c)] overflow-visible">
         {/* Close Button */}
         <IconButton
           onClick={handleClose}
+          className="absolute top-2 right-2 text-white bg-[#3b1d06] w-8 h-8 z-[100] rounded-full"
+          style={{ position: "absolute" }}
           sx={{
-            position: "absolute",
-            top: 16,
-            right: 16,
-            color: "#fff",
-            background: "#3b1d06",
-            width: 36,
-            height: 36,
-            zIndex: 10,
+            backgroundColor: "#3b1d06",
             "&:hover": {
-              background: "#2a1404",
-              transform: "scale(1.05)",
+              backgroundColor: "#3b1d06",
+              transform: "none",
+            },
+            "&:focus": {
+              outline: "none",
             },
           }}
         >
-          <CloseIcon sx={{ fontSize: 20 }} />
+          <CloseIcon className="text-[18px]" />
         </IconButton>
 
         {/* Logo */}
-        <Box sx={{ pt: 5, pb: 3 }}>
+        <div className="pt-5 pb-2">
           <img
             src="https://simplevedas.com/wp-content/uploads/2022/03/Simple-Vedas-Registration-page-logo.png"
             alt="Simple Vedas Logo"
-            style={{
-              width: 200,
-              display: "block",
-              margin: "0 auto",
-            }}
+            className="w-[130px] block mx-auto"
           />
-        </Box>
+        </div>
 
         {/* Form Container */}
-        <Box sx={{ px: 8, pb: 6 }}>
+        <div className="px-5 md:px-8 pb-5">
           {/* First Name & Last Name Row */}
-          <Box sx={{ display: "flex", gap: 2, mb: 2.5 }}>
-            <Box sx={{ flex: 1 }}>
-              <Box sx={{ textAlign: "left", mb: 0.5 }}>
-                <span style={{ color: "#3b1d06", fontSize: "14px", fontWeight: 600 }}>
-                  First Name <span style={{ color: "#d32f2f" }}>*</span>
+          <div className="flex gap-3 mb-3">
+            <div className="flex-1">
+              <div className="text-left mb-0.5">
+                <span className="text-[#3b1d06] text-xs font-semibold">
+                  First Name <span className="text-[#d32f2f]">*</span>
                 </span>
-              </Box>
+              </div>
               <TextField
                 fullWidth
                 placeholder=""
                 variant="outlined"
+                className="bg-white rounded-md [&_.MuiOutlinedInput-root]:h-[42px] [&_.MuiOutlinedInput-root]:text-[14px] [&_.MuiOutlinedInput-root_fieldset]:border-0 [&_.MuiOutlinedInput-input]:py-2 [&_.MuiOutlinedInput-input]:px-3"
                 sx={{
                   backgroundColor: "white",
                   borderRadius: "6px",
                   "& .MuiOutlinedInput-root": {
-                    height: "50px",
-                    fontSize: "15px",
                     "& fieldset": {
                       borderColor: "transparent",
-                      borderWidth: 0,
                     },
                     "&:hover fieldset": {
                       borderColor: "transparent",
                     },
                     "&.Mui-focused fieldset": {
                       borderColor: "transparent",
-                      borderWidth: 0,
+                    },
+                    "&.Mui-focused": {
+                      outline: "none",
                     },
                   },
                   "& .MuiOutlinedInput-input": {
-                    padding: "14px 16px",
+                    "&:focus": {
+                      outline: "none",
+                    },
                   },
                 }}
               />
-            </Box>
+            </div>
 
-            <Box sx={{ flex: 1 }}>
-              <Box sx={{ textAlign: "left", mb: 0.5 }}>
-                <span style={{ color: "#3b1d06", fontSize: "14px", fontWeight: 600 }}>
-                  Last Name <span style={{ color: "#d32f2f" }}>*</span>
+            <div className="flex-1">
+              <div className="text-left mb-0.5">
+                <span className="text-[#3b1d06] text-xs font-semibold">
+                  Last Name <span className="text-[#d32f2f]">*</span>
                 </span>
-              </Box>
+              </div>
               <TextField
                 fullWidth
                 placeholder=""
                 variant="outlined"
+                className="bg-white rounded-md [&_.MuiOutlinedInput-root]:h-[42px] [&_.MuiOutlinedInput-root]:text-[14px] [&_.MuiOutlinedInput-root_fieldset]:border-0 [&_.MuiOutlinedInput-input]:py-2 [&_.MuiOutlinedInput-input]:px-3"
                 sx={{
                   backgroundColor: "white",
                   borderRadius: "6px",
                   "& .MuiOutlinedInput-root": {
-                    height: "50px",
-                    fontSize: "15px",
                     "& fieldset": {
                       borderColor: "transparent",
-                      borderWidth: 0,
                     },
                     "&:hover fieldset": {
                       borderColor: "transparent",
                     },
                     "&.Mui-focused fieldset": {
                       borderColor: "transparent",
-                      borderWidth: 0,
+                    },
+                    "&.Mui-focused": {
+                      outline: "none",
                     },
                   },
                   "& .MuiOutlinedInput-input": {
-                    padding: "14px 16px",
+                    "&:focus": {
+                      outline: "none",
+                    },
                   },
                 }}
               />
-            </Box>
-          </Box>
+            </div>
+          </div>
 
           {/* Email */}
-          <Box sx={{ mb: 2.5 }}>
-            <Box sx={{ textAlign: "left", mb: 0.5 }}>
-              <span style={{ color: "#3b1d06", fontSize: "14px", fontWeight: 600 }}>
-                Email <span style={{ color: "#d32f2f" }}>*</span>
+          <div className="mb-3">
+            <div className="text-left mb-0.5">
+              <span className="text-[#3b1d06] text-xs font-semibold">
+                Email <span className="text-[#d32f2f]">*</span>
               </span>
-            </Box>
+            </div>
             <TextField
               fullWidth
               type="email"
               placeholder=""
               variant="outlined"
+              className="bg-white rounded-md [&_.MuiOutlinedInput-root]:h-[42px] [&_.MuiOutlinedInput-root]:text-[14px] [&_.MuiOutlinedInput-root_fieldset]:border-0 [&_.MuiOutlinedInput-input]:py-2 [&_.MuiOutlinedInput-input]:px-3"
               sx={{
                 backgroundColor: "white",
                 borderRadius: "6px",
                 "& .MuiOutlinedInput-root": {
-                  height: "50px",
-                  fontSize: "15px",
                   "& fieldset": {
                     borderColor: "transparent",
-                    borderWidth: 0,
                   },
                   "&:hover fieldset": {
                     borderColor: "transparent",
                   },
                   "&.Mui-focused fieldset": {
                     borderColor: "transparent",
-                    borderWidth: 0,
+                  },
+                  "&.Mui-focused": {
+                    outline: "none",
                   },
                 },
                 "& .MuiOutlinedInput-input": {
-                  padding: "14px 16px",
+                  "&:focus": {
+                    outline: "none",
+                  },
                 },
               }}
             />
-          </Box>
+          </div>
 
           {/* Select Country & WhatsApp No Row */}
-          <Box sx={{ display: "flex", gap: 2, mb: 2.5 }}>
-            <Box sx={{ flex: 1 }}>
-              <Box sx={{ textAlign: "left", mb: 0.5 }}>
-                <span style={{ color: "#3b1d06", fontSize: "14px", fontWeight: 600 }}>
-                  Select Country <span style={{ color: "#d32f2f" }}>*</span>
+          <div className="flex gap-3 mb-3">
+            <div className="flex-1">
+              <div className="text-left mb-0.5">
+                <span className="text-[#3b1d06] text-xs font-semibold">
+                  Select Country <span className="text-[#d32f2f]">*</span>
                 </span>
-              </Box>
+              </div>
               <Select
                 fullWidth
                 defaultValue="India +91"
+                className="bg-white rounded-md h-[42px] text-[14px] [&_.MuiOutlinedInput-notchedOutline]:border-0"
                 sx={{
                   backgroundColor: "white",
                   borderRadius: "6px",
-                  height: "50px",
-                  fontSize: "15px",
                   "& .MuiOutlinedInput-notchedOutline": {
                     border: "none",
                   },
@@ -202,180 +183,167 @@ const RegisterModal = ({ open, handleClose }) => {
                   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                     border: "none",
                   },
+                  "&.Mui-focused": {
+                    outline: "none",
+                  },
                 }}
               >
                 <MenuItem value="India +91">India +91</MenuItem>
                 <MenuItem value="USA +1">USA +1</MenuItem>
                 <MenuItem value="UK +44">UK +44</MenuItem>
               </Select>
-            </Box>
+            </div>
 
-            <Box sx={{ flex: 1 }}>
-              <Box sx={{ textAlign: "left", mb: 0.5 }}>
-                <span style={{ color: "#3b1d06", fontSize: "14px", fontWeight: 600 }}>
-                  Whatsapp No. <span style={{ color: "#d32f2f" }}>*</span>
+            <div className="flex-1">
+              <div className="text-left mb-0.5">
+                <span className="text-[#3b1d06] text-xs font-semibold">
+                  Whatsapp No. <span className="text-[#d32f2f]">*</span>
                 </span>
-              </Box>
+              </div>
               <TextField
                 fullWidth
                 placeholder=""
                 variant="outlined"
+                className="bg-white rounded-md [&_.MuiOutlinedInput-root]:h-[42px] [&_.MuiOutlinedInput-root]:text-[14px] [&_.MuiOutlinedInput-root_fieldset]:border-0 [&_.MuiOutlinedInput-input]:py-2 [&_.MuiOutlinedInput-input]:px-3"
                 sx={{
                   backgroundColor: "white",
                   borderRadius: "6px",
                   "& .MuiOutlinedInput-root": {
-                    height: "50px",
-                    fontSize: "15px",
                     "& fieldset": {
                       borderColor: "transparent",
-                      borderWidth: 0,
                     },
                     "&:hover fieldset": {
                       borderColor: "transparent",
                     },
                     "&.Mui-focused fieldset": {
                       borderColor: "transparent",
-                      borderWidth: 0,
+                    },
+                    "&.Mui-focused": {
+                      outline: "none",
                     },
                   },
                   "& .MuiOutlinedInput-input": {
-                    padding: "14px 16px",
+                    "&:focus": {
+                      outline: "none",
+                    },
                   },
                 }}
               />
-            </Box>
-          </Box>
+            </div>
+          </div>
 
           {/* Password */}
-          <Box sx={{ mb: 2.5 }}>
-            <Box sx={{ textAlign: "left", mb: 0.5 }}>
-              <span style={{ color: "#3b1d06", fontSize: "14px", fontWeight: 600 }}>
-                Password <span style={{ color: "#d32f2f" }}>*</span>
+          <div className="mb-3">
+            <div className="text-left mb-0.5">
+              <span className="text-[#3b1d06] text-xs font-semibold">
+                Password <span className="text-[#d32f2f]">*</span>
               </span>
-            </Box>
+            </div>
             <TextField
               fullWidth
               type="password"
               placeholder=""
               variant="outlined"
+              className="bg-white rounded-md [&_.MuiOutlinedInput-root]:h-[42px] [&_.MuiOutlinedInput-root]:text-[14px] [&_.MuiOutlinedInput-root_fieldset]:border-0 [&_.MuiOutlinedInput-input]:py-2 [&_.MuiOutlinedInput-input]:px-3"
               sx={{
                 backgroundColor: "white",
                 borderRadius: "6px",
                 "& .MuiOutlinedInput-root": {
-                  height: "50px",
-                  fontSize: "15px",
                   "& fieldset": {
                     borderColor: "transparent",
-                    borderWidth: 0,
                   },
                   "&:hover fieldset": {
                     borderColor: "transparent",
                   },
                   "&.Mui-focused fieldset": {
                     borderColor: "transparent",
-                    borderWidth: 0,
+                  },
+                  "&.Mui-focused": {
+                    outline: "none",
                   },
                 },
                 "& .MuiOutlinedInput-input": {
-                  padding: "14px 16px",
+                  "&:focus": {
+                    outline: "none",
+                  },
                 },
               }}
             />
-          </Box>
+          </div>
 
           {/* Confirm Password */}
-          <Box sx={{ mb: 3 }}>
-            <Box sx={{ textAlign: "left", mb: 0.5 }}>
-              <span style={{ color: "#3b1d06", fontSize: "14px", fontWeight: 600 }}>
-                Confirm Password <span style={{ color: "#d32f2f" }}>*</span>
+          <div className="mb-3">
+            <div className="text-left mb-0.5">
+              <span className="text-[#3b1d06] text-xs font-semibold">
+                Confirm Password <span className="text-[#d32f2f]">*</span>
               </span>
-            </Box>
+            </div>
             <TextField
               fullWidth
               type="password"
               placeholder=""
               variant="outlined"
+              className="bg-white rounded-md [&_.MuiOutlinedInput-root]:h-[42px] [&_.MuiOutlinedInput-root]:text-[14px] [&_.MuiOutlinedInput-root_fieldset]:border-0 [&_.MuiOutlinedInput-input]:py-2 [&_.MuiOutlinedInput-input]:px-3"
               sx={{
                 backgroundColor: "white",
                 borderRadius: "6px",
                 "& .MuiOutlinedInput-root": {
-                  height: "50px",
-                  fontSize: "15px",
                   "& fieldset": {
                     borderColor: "transparent",
-                    borderWidth: 0,
                   },
                   "&:hover fieldset": {
                     borderColor: "transparent",
                   },
                   "&.Mui-focused fieldset": {
                     borderColor: "transparent",
-                    borderWidth: 0,
+                  },
+                  "&.Mui-focused": {
+                    outline: "none",
                   },
                 },
                 "& .MuiOutlinedInput-input": {
-                  padding: "14px 16px",
+                  "&:focus": {
+                    outline: "none",
+                  },
                 },
               }}
             />
-          </Box>
+          </div>
 
           {/* reCAPTCHA Placeholder */}
-          <Box
-            sx={{
-              mb: 3,
-              backgroundColor: "#f9f9f9",
-              padding: "12px",
-              borderRadius: "6px",
-              border: "1px solid #d3d3d3",
-              display: "flex",
-              alignItems: "center",
-              gap: 2,
-            }}
-          >
-            <Box
-              sx={{
-                width: 24,
-                height: 24,
-                border: "2px solid #ccc",
-                borderRadius: "3px",
-              }}
-            />
-            <span style={{ fontSize: "14px", color: "#555" }}>I'm not a robot</span>
-            <Box sx={{ marginLeft: "auto" }}>
+          <div className="mb-3 bg-[#f9f9f9] p-2 rounded-md border border-[#d3d3d3] flex items-center gap-2">
+            <div className="w-5 h-5 border-2 border-[#ccc] rounded-sm" />
+            <span className="text-xs text-[#555]">I'm not a robot</span>
+            <div className="ml-auto">
               <img
                 src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
                 alt="reCAPTCHA"
-                style={{ width: 32, height: 32 }}
+                className="w-6 h-6"
               />
-            </Box>
-          </Box>
+            </div>
+          </div>
 
           {/* Register Button */}
           <Button
             fullWidth
             variant="contained"
+            className="bg-[#24100F] normal-case text-[15px] font-bold py-2 rounded-md text-white shadow-[0_2px_8px_rgba(0,0,0,0.2)]"
             sx={{
-              backgroundColor: "#3b1d06",
-              "&:hover": {
-                backgroundColor: "#2a1404",
-                transform: "translateY(-1px)",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-              },
-              textTransform: "none",
-              fontSize: "17px",
-              fontWeight: 600,
-              py: 1.5,
-              borderRadius: "6px",
+              backgroundColor: "#24100F",
               color: "#fff",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-              transition: "all 0.2s ease",
+              fontWeight: 700,
+              "&:hover": {
+                backgroundColor: "#24100F",
+              },
+              "&:focus": {
+                outline: "none",
+              },
             }}
           >
             Register
           </Button>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </Modal>
   );
 };
