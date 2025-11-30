@@ -2,7 +2,8 @@
 
 export const apiFetch = async (endpoint, options = {}) => {
   try {
-    const baseUrl = "http://localhost:5000/api"; // you can change this later
+    // Use environment variable or fallback to localhost for development
+    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
     const url = `${baseUrl}${endpoint}`;
 
     const defaultOptions = {

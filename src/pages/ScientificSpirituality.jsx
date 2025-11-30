@@ -1,5 +1,4 @@
 import React from 'react';
-
 const ScientificSpirituality = () => {
   // Add custom animation styles
   const playIconStyle = {
@@ -63,10 +62,13 @@ const ScientificSpirituality = () => {
         }
       `}</style>
       <div
-        className="bg-[#021844] py-16 px-12 md:px-32 flex flex-col md:flex-row items-center justify-center min-h-[60vh] gap-8 md:gap-8 max-w-7xl mx-auto"
+        className="mx-auto"
       >
+        <div
+          className="bg-[#021844] py-16 px-12 md:px-32 flex flex-col md:flex-row items-center justify-center min-h-[60vh] gap-8 md:gap-8"
+        >
       {/* Left Section: Text Content */}
-      <div className="w-full md:w-1/2 flex flex-col items-center" style={{ textAlign: 'justify' }}>
+      <div className="w-full md:w-1/2 flex flex-col items-center" style={{ textAlign: 'justify', padding: '20px', boxSizing: 'border-box' }}>
         <h2 style={{ fontWeight: 300, color: '#ffc13c', fontSize: '24px' }}>
           Scientific Spirituality
         </h2>
@@ -110,6 +112,7 @@ const ScientificSpirituality = () => {
       {/* Right Section: Image Grid */}
       <div
         className="w-full md:w-1/2 text-center"
+        style={{ padding: '10px', boxSizing: 'border-box' }}
       >
         {/* First Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -120,7 +123,9 @@ const ScientificSpirituality = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block"
-              style={{ backgroundColor: item.titleBgColor || 'transparent' }}
+              style={{ 
+                backgroundColor: item.titleBgColor || 'transparent'
+              }}
             >
               {item.type === 'image' && (
                 <>
@@ -135,7 +140,7 @@ const ScientificSpirituality = () => {
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <div className="relative opacity-0 group-hover:opacity-100 group-hover:[animation:playEaseIn_0.5s_ease-in_forwards] flex items-center justify-center">
                       {/* Light grey outer ring - attached to button */}
-                      <div className="absolute rounded-full border-2 border-gray-300" style={{ width: '68px', height: '68px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></div>
+                      <div className="absolute rounded-full" style={{ width: '68px', height: '68px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></div>
                       {/* Dark blue circle with yellow triangle */}
                       <div className="relative bg-[#021844] rounded-full shadow-lg flex items-center justify-center z-10" style={{ width: '64px', height: '64px' }}>
                         <svg
@@ -176,7 +181,9 @@ const ScientificSpirituality = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={`w-full aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block ${index === 1 ? 'hidden md:block' : ''}`}
-              style={{ backgroundColor: item.titleBgColor || 'transparent' }}
+              style={{ 
+                backgroundColor: item.titleBgColor || 'transparent'
+              }}
             >
               {item.type === 'image' && (
                 <>
@@ -191,7 +198,7 @@ const ScientificSpirituality = () => {
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <div className="relative opacity-0 group-hover:opacity-100 group-hover:[animation:playEaseIn_0.5s_ease-in_forwards] flex items-center justify-center">
                       {/* Light grey outer ring - attached to button */}
-                      <div className="absolute rounded-full border-2 border-gray-300" style={{ width: '68px', height: '68px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></div>
+                      <div className="absolute rounded-full" style={{ width: '68px', height: '68px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></div>
                       {/* Dark blue circle with yellow triangle */}
                       <div className="relative bg-[#021844] rounded-full shadow-lg flex items-center justify-center z-10" style={{ width: '64px', height: '64px' }}>
                         <svg
@@ -224,9 +231,9 @@ const ScientificSpirituality = () => {
           ))}
         </div>
       </div>
-    </div>
+        </div>
+      </div>
     </>
   );
 };
-
 export default ScientificSpirituality;
