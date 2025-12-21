@@ -1,211 +1,75 @@
 import React from 'react';
-import { Box, Typography, Grid, Card, CardMedia } from '@mui/material';
-
-// Assuming these imports are local files and you'll update the paths later
-import embaraceQuote from "../assets/images/embrace.jpg";
-import faithQuote from "../assets/images/faith.png";
-import relationshipQuote from "../assets/images/relationships.jpg";
-import weaknessesQuote from "../assets/images/weekness.jpg";
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import { Link } from 'react-router-dom';
 
 const quotes = [
   {
-    image: faithQuote,
-    text: 'Faith, Faith, Faith...This one word covers the entire spiritual journey.',
-    source: '(Based on Bhagavad Gita 9.3) - Madhusudana Visnu Das',
+    img: 'https://simplevedas.com/wp-content/uploads/2022/02/1-1024x1024.png',
   },
   {
-    image: embaraceQuote,
-    text: 'If you really want to ask something from GOD, why ask for petty things of this world- WEALTH, POWER, BEAUTY, FAME and so on? Ask for something GREAT. Ask for a MEETING with the LORD. Ask for REUNION with Him. Ask for His EMBRACE.',
-    source: '',
+    img: 'https://simplevedas.com/wp-content/uploads/2022/02/21-1024x1024.jpg',
   },
   {
-    image: weaknessesQuote,
-    text: 'When our weaknesses get stronger than us, we need to cling for support to those who are Mentally and Spiritually stronger.',
-    source: '- Madhusudana Visnu Das',
+    img: 'https://simplevedas.com/wp-content/uploads/2022/02/20-1024x1024.png',
   },
   {
-    image: relationshipQuote,
-    text: 'Genuine Relationships are supported by the Pillars of Responsibility, not Recreation.',
-    source: 'Based on Bhagavad-gita 18.38',
+    img: 'https://simplevedas.com/wp-content/uploads/2022/02/28-1024x1024.png',
   },
 ];
 
 const WisdomQuotes = () => {
-  const YellowColor = '#ffc13c';
-  const BackgroundColor = '#f1f5f8'; // Light gray background
-  const DarkTextColor = '#333333'; // Equivalent to gray-800
-
-  const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: (theme.vars ?? theme).palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
-
   return (
-    <Box
-      component="section"
-      sx={{
-        backgroundColor: BackgroundColor,
-        py: { xs: 8, md: 10 }, // Responsive vertical padding
-        px: { xs: 2, sm: 4, md: 6 }, // Responsive horizontal padding
-        position: 'relative',
-      }}
-    >
-      <Box sx={{ maxWidth: 'lg', margin: '0 auto', textAlign: 'center' }}>
-        
-        {/* Header */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
-            alignItems: 'center',
-            justifyContent: 'center',
-            mb: { xs: 4, sm: 6 },
-            gap: 1, // Space between title and decorative lines
-          }}
-        >
-          {/* Decorative Line Left */}
-          <Box
-            sx={{
-              width: { xs: 40, sm: 48 }, // 10 and 12 units wide
-              height: 3, // 0.5 h, using 3px for visibility
-              backgroundColor: YellowColor,
-              display: { xs: 'none', sm: 'block' }, // Hide line on extra-small screens
-            }}
-          />
-          <Typography
-            variant="h4"
-            component="h1"
-            sx={{
-              fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-              fontWeight: 600,
-              color: DarkTextColor,
-              fontFamily: "Roboto",
-            }}
-          >
-            Wisdom{' '}
-            <Box component="span" sx={{ color: YellowColor }}>
-              Quotes
-            </Box>
-          </Typography>
-          {/* Decorative Line Right */}
-          <Box
-            sx={{
-              width: { xs: 40, sm: 48 },
-              height: 3,
-              backgroundColor: YellowColor,
-              display: { xs: 'none', sm: 'block' },
-            }}
-          />
-        </Box>
+    <section className="bg-[#faf6f1] py-12 md:py-16 px-4">
+      <div className="max-w-5xl mx-auto text-center">
 
-        <Grid container spacing={4}>
-          <Grid size={3}>
-            <Card
-            elevation={4}
-            sx={{
-              position: 'relative',
-              borderRadius: 1,
-              overflow: 'hidden',
-              border: '1px solid #e5e7eb',
-              cursor: 'pointer',
-              transition: 'transform 300ms ease-in-out',
-              '&:hover': {
-                transform: 'scale(1.03)',
-                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-              },
-            }}
-        >
-          <CardMedia
-            component="img"
-            image={quotes[0].image}
-            alt="Quote 1"
-            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
-          />
-            </Card>
-          </Grid>
-          <Grid size={3}>
-            <Card
-            elevation={4}
-            sx={{
-              position: 'relative',
-              borderRadius: 1,
-              overflow: 'hidden',
-              border: '1px solid #e5e7eb',
-              cursor: 'pointer',
-              transition: 'transform 300ms ease-in-out',
-              '&:hover': {
-                transform: 'scale(1.03)',
-                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-              },
-            }}
-        >
-          <CardMedia
-            component="img"
-            image={quotes[1].image}
-            alt="Quote 1"
-            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
-          />
-            </Card>
-          </Grid>
-          <Grid size={3}>
-            <Card
-            elevation={4}
-            sx={{
-              position: 'relative',
-              borderRadius: 1,
-              overflow: 'hidden',
-              border: '1px solid #e5e7eb',
-              cursor: 'pointer',
-              transition: 'transform 300ms ease-in-out',
-              '&:hover': {
-                transform: 'scale(1.03)',
-                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-              },
-            }}
-        >
-          <CardMedia
-            component="img"
-            image={quotes[2].image}
-            alt="Quote 1"
-            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
-          />
-            </Card>
-          </Grid>
-          <Grid size={3}>
-            <Card
-            elevation={4}
-            sx={{
-              position: 'relative',
-              borderRadius: 1,
-              overflow: 'hidden',
-              border: '1px solid #e5e7eb',
-              cursor: 'pointer',
-              transition: 'transform 300ms ease-in-out',
-              '&:hover': {
-                transform: 'scale(1.03)',
-                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-              },
-            }}
-        >
-          <CardMedia
-            component="img"
-            image={quotes[0].image}
-            alt="Quote 1"
-            sx={{ height: { xs: 224, sm: 256, md: 288, lg: 320 }, objectFit: 'cover' }}
-          />
-            </Card>
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+        {/* Heading - SimpleVedas Style */}
+        <div className="mb-10">
+          <div className="flex items-center justify-center gap-4 mb-3">
+            <div className="w-12 h-0.5 bg-[#d4a656]"></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#3c2f2f]">
+              Wisdom <span className="text-[#d4a656]">Quotes</span>
+            </h2>
+            <div className="w-12 h-0.5 bg-[#d4a656]"></div>
+          </div>
+        </div>
+
+        {/* 4 Quotes Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {quotes.map((quote, index) => (
+            <Link 
+              to="/quotes" 
+              key={index} 
+              className={`block group ${index > 0 ? 'hidden sm:block' : ''}`}
+            >
+              <div className="relative h-80 overflow-hidden transition-all duration-500">
+                
+                {/* Image */}
+                <img
+                  src={quote.img}
+                  alt="Wisdom quote"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* Subtle Golden Border on Hover */}
+                <div className="absolute inset-0 ring-4 ring-transparent group-hover:ring-[#d4a656]/40 transition-all duration-500"></div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* See More Button - Mobile Only */}
+        <div className="mt-6 sm:hidden">
+          <Link 
+            to="/quotes"
+            className="text-[#3c2f2f] hover:underline group inline-block"
+          >
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity">[</span>
+            <span>See More</span>
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity">]</span>
+          </Link>
+        </div>
+
+      </div>
+    </section>
   );
 };
 

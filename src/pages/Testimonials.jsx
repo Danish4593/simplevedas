@@ -1,196 +1,193 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Typography, Avatar, IconButton } from '@mui/material';
-import { FiberManualRecord, FormatQuote as QuoteIcon } from '@mui/icons-material';
+import React, { useState, useEffect, useRef } from 'react';
 
 const testimonials = [
   {
-    image: 'https://placehold.co/100x100/FDC13C/FFFFFF?text=Sailesh',
-    name: 'Sailesh Kumar Gupta',
-    title: 'Aircraft Maintenance Engineer | Abudhabi, UAE',
+    image: 'https://i.pravatar.cc/150?img=12',
+    name: 'He Pan (何 畔)',
+    title: 'MBA, Retired HR Manager | Shenyang, China',
     quote:
-      'The teaching and hand holding of the tutor has helped me improve the quality of my thought and action. I have attended the Gita Diploma Course, which turned out to be a stepping stone on the path of bhakti for me.',
+      'The Gita course is highly authoritative, well-structured and story-filled, with very clear, concise, and easy to understand explanations. I really loved the vivid narrations and I especially found the PowerPoint presentations exquisitely attractive.',
   },
   {
-    image: 'https://placehold.co/100x100/FDC13C/FFFFFF?text=Jane',
-    name: 'Jane Doe',
-    title: 'Software Engineer | San Francisco, USA',
+    image: 'https://i.pravatar.cc/150?img=47',
+    name: 'Kankana Kar',
+    title: 'Yoga Teacher and Therapist | Bangalore, India',
     quote:
-      'This course has completely changed my perspective on life. The practical lessons and guidance have been invaluable. I highly recommend it to anyone seeking spiritual growth.',
+      'I have taken up 2 live courses and 2 YouTube courses with Simple Vedas. All were very enlightening and illuminating. These courses are really substantial and life-altering. I haven\'t been the same person I was before I took them. Madhusudana Visnu Das and his life lessons have been the go-to person / point for any complexities I have in life. He is very down to earth who is always there to help even with his busy schedule. I would strongly recommend everyone to go ahead and take up the courses and just watch your life transform.',
   },
   {
-    image: 'https://placehold.co/100x100/FDC13C/FFFFFF?text=John',
-    name: 'John Smith',
-    title: 'Architect | London, UK',
+    image: 'https://i.pravatar.cc/150?img=33',
+    name: 'Akshay Gupta',
+    title: 'Student, Human Resource Management | Delhi, India',
     quote:
-      'The structured approach to learning made complex topics easy to understand. The quizzes and assignments helped reinforce my knowledge. A truly enriching experience.',
+      'Simple Vedas is a platform where I have found a complete package of our Vedic wisdom. Personally, I have learnt so many philosophical concepts and also the tools to apply the teachings in my life. It is the teacher\'s wonderful and pragmatic teaching that everyone can learn from these courses, beginners or pundits.',
+  },
+  {
+    image: 'https://i.pravatar.cc/150?img=20',
+    name: 'Daya Rupa Devi Dasi',
+    title: 'Entrepreneur | Ghana, Africa',
+    quote:
+      'It is said that the more we learn, the more we realize we know nothing. Every time I attend a course, or hear a talk, or even simply read a quote, I get to learn so much. I have been much enlightened on the path of bhakti after joining Simple Vedas.',
+  },
+  {
+    image: 'https://i.pravatar.cc/150?img=68',
+    name: 'Govardhanadhari Das',
+    title: 'ISKCON Monk, Preacher in Arab countries | Vrindavan, India',
+    quote:
+      'The study of the Bhagavad Gita and other important scriptures that Madhusudana Vishnu Prabhu is teaching online is ideal for today\'s people, who are engaged in different daily activities; his teaching system is easy, practical, interactive and analytical.',
   },
 ];
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const carouselRef = useRef(null);
+  const intervalRef = useRef(null);
+  const isTransitioningRef = useRef(false);
 
-  const YellowColor = '#ffc13c';
-  const DarkTextColor = '#333333';
+  // Triple testimonials for seamless infinite loop
+  const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   // Auto-slide every 4 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) =>
-        prev === testimonials.length - 1 ? 0 : prev + 1
-      );
+    intervalRef.current = setInterval(() => {
+      if (!isTransitioningRef.current) {
+        setCurrentSlide((prev) => prev + 1);
+      }
     }, 4000);
 
-    return () => clearInterval(interval);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, []);
 
+  // Handle smooth infinite loop
+  useEffect(() => {
+    if (carouselRef.current) {
+      const slideWidth = 100 / extendedTestimonials.length;
+      const offset = currentSlide * slideWidth;
+      
+      isTransitioningRef.current = true;
+      carouselRef.current.style.transition = 'transform 1000ms ease-in-out';
+      carouselRef.current.style.transform = `translateX(-${offset}%)`;
+
+      // Reset position seamlessly when reaching the second set
+      if (currentSlide >= testimonials.length * 2) {
+        setTimeout(() => {
+          if (carouselRef.current) {
+            carouselRef.current.style.transition = 'none';
+            const resetPosition = testimonials.length * (100 / extendedTestimonials.length);
+            carouselRef.current.style.transform = `translateX(-${resetPosition}%)`;
+            setCurrentSlide(testimonials.length);
+            isTransitioningRef.current = false;
+          }
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          isTransitioningRef.current = false;
+        }, 1000);
+      }
+    }
+  }, [currentSlide]);
+
   const handleSlideChange = (index) => {
-    setCurrentSlide(index);
+    if (isTransitioningRef.current) return;
+    
+    setCurrentSlide(testimonials.length + index);
+    
+    // Reset interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    setTimeout(() => {
+      intervalRef.current = setInterval(() => {
+        if (!isTransitioningRef.current) {
+          setCurrentSlide((prev) => prev + 1);
+        }
+      }, 4000);
+    }, 1000);
+  };
+
+  const getActiveDotIndex = () => {
+    return currentSlide % testimonials.length;
   };
 
   return (
-    <Box
-      component="section"
-      sx={{
-        backgroundColor: 'white',
-        py: { xs: 8, md: 10 },
-        px: { xs: 2, sm: 4, md: 6 },
-      }}
-    >
-      <Box sx={{ maxWidth: 'lg', margin: '0 auto', textAlign: 'center' }}>
+    <section className="bg-white py-8 md:py-10 px-2 sm:px-4 md:px-6">
+      <div className="max-w-7xl mx-auto text-center">
         {/* Header */}
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            mb: { xs: 4, sm: 6 },
-          }}
-        >
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'block' },
-              width: 48,
-              height: 2,
-              backgroundColor: YellowColor,
-              mx: 2,
-            }}
-          />
-          <Typography
-            variant="h4"
-            component="h2"
-            sx={{
-              fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-              fontWeight: 600,
-              color: DarkTextColor,
-              fontFamily: 'Roboto',
-            }}
-          >
+        <div className="flex items-center justify-center mb-6 sm:mb-8">
+          <div className="hidden sm:block w-12 h-px bg-yellow-400 mx-2"></div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800">
             Hear it from{' '}
-            <Box component="span" sx={{ color: YellowColor }}>
-              Our Students
-            </Box>
-          </Typography>
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'block' },
-              width: 48,
-              height: 2,
-              backgroundColor: YellowColor,
-              mx: 2,
-            }}
-          />
-        </Box>
+            <span className="text-yellow-400">Our Students</span>
+          </h2>
+          <div className="hidden sm:block w-12 h-px bg-yellow-400 mx-2"></div>
+        </div>
 
-        {/* Slider */}
-        <Box
-          sx={{
-            maxWidth: 'md',
-            margin: '0 auto',
-            position: 'relative',
-            overflow: 'hidden',
-            height: { xs: 360, sm: 380, md: 420 },
-          }}
-        >
-          {/* Sliding Wrapper */}
-          <Box
-            sx={{
-              display: 'flex',
-              width: `${testimonials.length * 100}%`,
-              transform: `translateX(-${currentSlide * (100 / testimonials.length)}%)`,
-              transition: 'transform 1000ms ease-in-out',
+        {/* Infinite Carousel Container */}
+        <div className="max-w-4xl mx-auto relative overflow-hidden">
+          <div
+            ref={carouselRef}
+            className="flex"
+            style={{
+              width: `${extendedTestimonials.length * 100}%`,
             }}
           >
-            {testimonials.map((testimonial, index) => (
-              <Box
+            {extendedTestimonials.map((testimonial, index) => (
+              <div
                 key={index}
-                sx={{
-                  flex: `0 0 ${100 / testimonials.length}%`,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  px: { xs: 2, sm: 4 },
-                }}
+                className="flex-shrink-0 flex flex-col items-center px-2 sm:px-4 md:px-6 min-h-96"
+                style={{ width: `${100 / extendedTestimonials.length}%` }}
               >
-                <Avatar
+                <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  sx={{
-                    width: { xs: 80, sm: 96 },
-                    height: { xs: 80, sm: 96 },
-                    border: `4px solid ${YellowColor}`,
-                    mb: 2,
-                  }}
+                  className="w-28 h-28 sm:w-32 sm:h-32 rounded-full mb-4 object-cover"
                 />
-                <Typography
-                  variant="h6"
-                  sx={{ fontWeight: 600, mb: 0.5, color: DarkTextColor }}
-                >
+                <h3 className="text-lg sm:text-xl font-semibold mb-1 text-gray-800">
                   {testimonial.name}
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
+                </h3>
+                <p className="text-sm text-gray-600 mb-6">
                   {testimonial.title}
-                </Typography>
+                </p>
 
-                <QuoteIcon sx={{ width: 32, height: 32, color: 'grey.400', mb: 3 }} />
-
-                <Typography
-                  variant="h6"
-                  component="p"
-                  sx={{
-                    color: 'grey.700',
-                    lineHeight: 1.6,
-                    maxWidth: 700,
-                    fontStyle: 'italic',
-                    fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
-                  }}
+                {/* Quote Icon */}
+                <svg
+                  className="w-8 h-8 text-black mb-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {`"${testimonial.quote}"`}
-                </Typography>
-              </Box>
+                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                </svg>
+
+                <p className="text-gray-700 leading-relaxed max-w-2xl px-4 text-sm" style={{ fontWeight: 300 }}>
+                  &quot;{testimonial.quote}&quot;
+                </p>
+              </div>
             ))}
-          </Box>
-        </Box>
+          </div>
+        </div>
 
         {/* Navigation Dots */}
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: { xs: 4, sm: 6 } }}>
+        <div className="flex justify-center mt-6 sm:mt-8 gap-2">
           {testimonials.map((_, index) => (
-            <IconButton
+            <button
               key={index}
               onClick={() => handleSlideChange(index)}
-              size="small"
-              sx={{
-                p: 0.5,
-                color: index === currentSlide ? YellowColor : 'grey.400',
-                transition: 'color 300ms',
-                '&:hover': { color: YellowColor },
-              }}
-            >
-              <FiberManualRecord fontSize="small" />
-            </IconButton>
+              className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                index === getActiveDotIndex()
+                  ? 'bg-yellow-400'
+                  : 'bg-gray-400 hover:bg-yellow-400'
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
           ))}
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </section>
   );
 };
 

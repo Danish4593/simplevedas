@@ -19,6 +19,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PeopleIcon from "@mui/icons-material/People";
 import BlurLinearIcon from '@mui/icons-material/BlurLinear';
+import SchoolIcon from '@mui/icons-material/School';
 
 export default function AdminLayout() {
   const [open, setOpen] = useState(true);
@@ -98,6 +99,23 @@ export default function AdminLayout() {
                 <PeopleIcon />
               </ListItemIcon>
               {open && <ListItemText primary="Users" />}
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton
+              component={Link}
+              to="/admin/course"
+              selected={location.pathname === "/admin/course"}
+              sx={{
+                "&.Mui-selected": { backgroundColor: "#ffe6a1" },
+                "&.Mui-selected:hover": { backgroundColor: "#ffd84d" },
+              }}
+            >
+              <ListItemIcon>
+                <SchoolIcon />
+              </ListItemIcon>
+              {open && <ListItemText primary="Course" />}
             </ListItemButton>
           </ListItem>
 
