@@ -1,5 +1,5 @@
 import React from 'react';
-import downloadAppImage from "../assets/images/app.webp";
+import downloadAppImage from "../assets/images/app.webp"
 import {
   Box,
   Container,
@@ -7,49 +7,76 @@ import {
   Typography,
   Button,
   Link,
+  IconButton,
   Divider
 } from '@mui/material';
-import { WhatsApp } from '@mui/icons-material';
-import BottomFooter from "../components/BottomFotter";
+import {
+  Facebook,
+  Instagram,
+  YouTube,
+  WhatsApp,
+  Phone,
+  Email,
+  LocationOn
+} from '@mui/icons-material';
+import BottomFooter from "../components/BottomFotter"
 
 const Footer = () => {
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: '#031B4E', 
-        color: '#FFFFFF',
-        pt: 7,
+        backgroundColor: '#021844', // Deep blue background
+        color: 'white',
+        py: 6,
+        position: 'relative'
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={5}>
-
-          {/* ABOUT US */}
-          <Grid item xs={12} md={3} width={"25%"}>
-            <Typography sx={headingStyle}>About Us</Typography>
-            <Divider sx={dividerStyle} />
-
-            <Typography sx={bodyText}>
-              Simple Vedas is an initiative to make the ancient spiritual
-              techniques given in the Vedas available to the modern world in a
-              way that it is relevant, practical, simple and authentic.
+        <Grid container spacing={4}>
+          {/* About Us Section */}
+          <Grid size={3} item xs={12} md={3}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 600,
+                mb: 2,
+                fontSize: '1.1rem'
+              }}
+            >
+              About Us
             </Typography>
-
+            <Divider
+              sx={{
+                backgroundColor: '#ff9800',
+                height: 3,
+                width: 40,
+                mb: 3
+              }}
+            />
+            <Typography
+              variant="body2"
+              sx={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                lineHeight: 1.6,
+                mb: 3,
+                fontSize: '0.875rem'
+              }}
+            >
+              Simple Vedas is an initiative to make the ancient spiritual techniques given in the Vedas available to the modern world in a way that it is relevant, practical, simple and authentic.
+            </Typography>
             <Button
               variant="outlined"
               sx={{
-                mt: 2,
-                borderColor: '#FFFFFF',
-                color: '#FFFFFF',
+                borderColor: 'rgba(255, 255, 255, 0.5)',
+                color: 'white',
                 textTransform: 'none',
-                px: 4,
+                fontSize: '0.875rem',
+                px: 3,
                 py: 1,
-                fontSize: '14px',
-                borderRadius: '2px',
                 '&:hover': {
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                  borderColor: '#FFFFFF'
+                  borderColor: 'white',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)'
                 }
               }}
             >
@@ -57,141 +84,241 @@ const Footer = () => {
             </Button>
           </Grid>
 
-          {/* USEFUL LINKS + WHATSAPP */}
-          <Grid item xs={12} md={3}>
-            <Typography sx={headingStyle}>Useful Links</Typography>
-            <Divider sx={[dividerStyle,{mb:5}]} />
-
-            <Grid container spacing={1}>
-              <Grid item xs={6}>
-                {['Home', 'About', 'Quotes'].map(link => (
-                  <FooterLink key={link} label={link} />
-                ))}
+          {/* Useful Links Section */}
+          <Grid size={3} item xs={12} md={3}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 600,
+                mb: 2,
+                fontSize: '1.1rem'
+              }}
+            >
+              Useful Links
+            </Typography>
+            <Divider
+              sx={{
+                backgroundColor: '#ff9800',
+                height: 3,
+                width: 40,
+                mb: 3
+              }}
+            />
+            <Grid container spacing={2}>
+              <Grid size={3} item xs={6}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                  {['Home', 'About', 'Quotes'].map((link) => (
+                    <Link
+                      key={link}
+                      href="#"
+                      sx={{
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        textDecoration: 'none',
+                        fontSize: '0.875rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        '&:hover': {
+                          color: 'white'
+                        },
+                        '&:before': {
+                          content: '"❯"',
+                          marginRight: 1,
+                          color: '#ff9800'
+                        }
+                      }}
+                    >
+                      {link}
+                    </Link>
+                  ))}
+                </Box>
               </Grid>
-              <Grid item xs={6} ml={7}>
-                {['Courses', 'Shop', 'Events'].map(link => (
-                  <FooterLink key={link} label={link} />
-                ))}
+              <Grid size={3} item xs={6}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                  {['Courses', 'Shop', 'Events'].map((link) => (
+                    <Link
+                      key={link}
+                      href="#"
+                      sx={{
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        textDecoration: 'none',
+                        fontSize: '0.875rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        '&:hover': {
+                          color: 'white'
+                        },
+                        '&:before': {
+                          content: '"❯"',
+                          marginRight: 1,
+                          color: '#ff9800'
+                        }
+                      }}
+                    >
+                      {link}
+                    </Link>
+                  ))}
+                </Box>
               </Grid>
             </Grid>
-
-            <Typography sx={{ ...headingStyle, mt: 4 }}>
+            
+            {/* WhatsApp Community Section */}
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 600,
+                mt: 4,
+                mb: 2,
+                fontSize: '1.1rem'
+              }}
+            >
               Join WhatsApp Community
             </Typography>
-            <Divider sx={[dividerStyle,{mb:5}]} />
-
-            {['Channel', 'Announcement Group'].map(item => (
-              <Link
-                key={item}
-                href="#"
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1,
-                  color: 'gray',
-                  fontSize: '16px',
-                  my: 2,
-                  textDecoration: 'none',
-                  '&:hover': { color: '#FFFFFF' }
-                }}
-              >
-                <WhatsApp sx={{ fontSize: 16, color: '#F6B221' }} />
-                {item}
-              </Link>
-            ))}
-          </Grid>
-
-          {/* DOWNLOAD APP */}
-          <Grid item xs={12} md={3}>
-            <Typography sx={headingStyle}>Download our App!</Typography>
-            <Divider sx={dividerStyle} />
-
-            <Box sx={{ mt: 2 }}>
-              <img
-                src={downloadAppImage}
-                alt="Download App"
-                style={{
-                  width: '100%',
-                  maxWidth: 240,
-                  display: 'block'
-                }}
-              />
+            <Divider
+              sx={{
+                backgroundColor: '#ff9800',
+                height: 3,
+                width: 40,
+                mb: 3
+              }}
+            />
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              {['Channel', 'Announcement Group'].map((item) => (
+                <Link
+                  key={item}
+                  href="#"
+                  sx={{
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    '&:hover': {
+                      color: 'white'
+                    }
+                  }}
+                >
+                  <WhatsApp sx={{ mr: 1, fontSize: '1rem' }} />
+                  {item}
+                </Link>
+              ))}
             </Box>
           </Grid>
 
-          {/* CONTACT US */}
+          {/* Download App Section */}
           <Grid item xs={12} md={3}>
-            <Typography sx={headingStyle}>Contact Us</Typography>
-            <Divider sx={dividerStyle} />
-
-            <Typography sx={subHeading}>Address</Typography>
-            <Typography sx={bodyText}>
-              Simple Vedas, Radha Giridhari Mandira,<br />
-              Bhaktivedanta Swami Marg, Mira Road,<br />
-              Thane, Maharashtra – 401107
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 600,
+                mb: 2,
+                fontSize: '1.1rem'
+              }}
+            >
+              Download our App!
+           
             </Typography>
-
-            <Typography sx={{ ...subHeading, mt: 3 }}>Phone</Typography>
-            <Typography sx={bodyText}>+91 9987318251</Typography>
-
-            <Typography sx={{ ...subHeading, mt: 3 }}>Email</Typography>
-            <Typography sx={bodyText}>contact@simplevedas.com</Typography>
+                <img
+                      src={downloadAppImage}
+              
+                  />
           </Grid>
 
-        </Grid>
-      </Container>
+          {/* Contact Us Section */}
+          <Grid item xs={12} md={3}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 600,
+                mb: 2,
+                fontSize: '1.1rem'
+              }}
+            >
+              Contact Us
+            </Typography>
+            <Divider
+              sx={{
+                backgroundColor: '#ff9800',
+                height: 3,
+                width: 40,
+                mb: 3
+              }}
+            />
+            
+            <Box sx={{ mb: 3 }}>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  fontWeight: 600,
+                  mb: 1,
+                  fontSize: '1rem'
+                }}
+              >
+                Address
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  lineHeight: 1.6,
+                  fontSize: '0.875rem'
+                }}
+              >
+                Simple Vedas, Radha Giridhari Mandira
+              </Typography>
+            </Box>
 
-      <BottomFooter />
+            <Box sx={{ mb: 3 }}>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  fontWeight: 600,
+                  mb: 1,
+                  fontSize: '1rem'
+                }}
+              >
+                Phone
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontSize: '0.875rem'
+                }}
+              >
+                +91 9987318251
+              </Typography>
+            </Box>
+
+            <Box>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  fontWeight: 600,
+                  mb: 1,
+                  fontSize: '1rem'
+                }}
+              >
+                Email
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontSize: '0.875rem'
+                }}
+              >
+                contact@simplevedas.com
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+
+                <></>
+      </Container>
+      <BottomFooter/>
+      {/* Floating Contact Button */}
     </Box>
   );
 };
-
-/* ---------- Shared Styles ---------- */
-
-const headingStyle = {
-  fontSize: '18px',
-  fontWeight: 500,
-  mb: 1.5
-};
-
-const subHeading = {
-  fontSize: '18px',
-  mb: 1,
-};
-
-const bodyText = {
-  fontSize: '15px',
-  color: 'gray',
-  lineHeight: 2
-};
-
-const dividerStyle = {
-  width: 36,
-  height: 3,
-  backgroundColor: '#F6B221',
-  mb: 3
-};
-
-const FooterLink = ({ label }) => (
-  <Link
-    href="#"
-    sx={{
-      display: 'flex',
-      alignItems: 'center',
-      color: 'gray',
-      fontSize: '16px',
-      mb: 1.5,
-      textDecoration: 'none',
-      '&:hover': { color: '#FFFFFF' },
-      '&::before': {
-        content: '"›"',
-        color: '#F6B221',
-        mr: 1
-      }
-    }}
-  >
-    {label}
-  </Link>
-);
 
 export default Footer;
