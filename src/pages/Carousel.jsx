@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Typography, Container } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
 import gitaCourse from "../assets/images/gita-course.jpg";
@@ -11,11 +11,11 @@ const images = [PageBanner, gitaCourse, courseApp];
 const Carousel = () => {
     const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 3s
+  // Auto-slide every 5s
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
 }, []);
 
@@ -48,10 +48,10 @@ return (
             flexShrink: 0,
             objectFit: "cover",
             height: {
-                xs: 200,
-                sm: 300,
-                md: 400,
-                lg: 500,
+                xs: 250,
+                sm: 350,
+                md: 450,
+                lg: 550,
             },
             }}
         />
@@ -64,16 +64,17 @@ return (
         sx={{
         position: "absolute",
         top: "50%",
-        left: { xs: 8, sm: 16 },
+        left: { xs: 8, sm: 16, md: 24 },
         transform: "translateY(-50%)",
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: "rgba(255,255,255,0.3)",
         color: "white",
+        zIndex: 10,
         "&:hover": {
-            backgroundColor: "rgba(0,0,0,0.7)",
+            backgroundColor: "rgba(255,255,255,0.5)",
         },
         }}
     >
-        <ChevronLeft />
+        <ChevronLeft sx={{ fontSize: { xs: 24, md: 32 } }} />
     </IconButton>
 
       {/* Next Button */}
@@ -82,26 +83,27 @@ return (
         sx={{
         position: "absolute",
         top: "50%",
-        right: { xs: 8, sm: 16 },
+        right: { xs: 8, sm: 16, md: 24 },
         transform: "translateY(-50%)",
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: "rgba(255,255,255,0.3)",
         color: "white",
+        zIndex: 10,
         "&:hover": {
-            backgroundColor: "rgba(0,0,0,0.7)",
+            backgroundColor: "rgba(255,255,255,0.5)",
         },
         }}
     >
-        <ChevronRight />
+        <ChevronRight sx={{ fontSize: { xs: 24, md: 32 } }} />
     </IconButton>
 
       {/* Dots */}
     <Box
         position="absolute"
-        bottom={{ xs: 8, sm: 16 }}
+        bottom={{ xs: 16, sm: 24 }}
         left="50%"
-        sx={{ transform: "translateX(-50%)" }}
+        sx={{ transform: "translateX(-50%)", zIndex: 10 }}
         display="flex"
-        gap={1}
+        gap={1.5}
     >
         {images.map((_, index) => (
         <Box
@@ -110,11 +112,12 @@ return (
             sx={{
             cursor: "pointer",
             borderRadius: "50%",
-            transition: "all 0.3s",
-            width: current === index ? { xs: 12, sm: 16 } : { xs: 8, sm: 12 },
-            height: current === index ? { xs: 12, sm: 16 } : { xs: 8, sm: 12 },
+            transition: "all 0.3s ease",
+            width: current === index ? { xs: 14, sm: 18 } : { xs: 10, sm: 14 },
+            height: current === index ? { xs: 14, sm: 18 } : { xs: 10, sm: 14 },
             backgroundColor:
-                current === index ? "white" : "rgba(200,200,200,0.9)",
+                current === index ? "white" : "rgba(255,255,255,0.6)",
+            boxShadow: current === index ? "0 2px 8px rgba(0,0,0,0.2)" : "none",
             }}
         />
         ))}

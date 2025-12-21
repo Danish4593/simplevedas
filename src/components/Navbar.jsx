@@ -98,23 +98,24 @@ export default function Header() {
   );
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#fff", boxShadow: "none" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#fff", boxShadow: "0 1px 4px rgba(0,0,0,0.08)",px:20 }}>
       <Toolbar
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          minHeight: 500,
-          height: 110,
-          px: { xs: 2, sm: 3, md: 5 }, // added padding for small screens
+          minHeight: 80,
+          height: 80,
+          px: { xs: 2, sm: 3, md: 6 },
         }}
       >
         {/* Logo */}
         <Box
           sx={{
-            flexShrink: 1,
-            maxWidth: { xs: "70%", sm: "50%", md: "none" },
-            height: { xs: 50, sm: 60, md: 70 }, // 👈 Added responsive height
+            flexShrink: 0,
+            display: "flex",
+            alignItems: "center",
+            height: 65,
           }}
         >
           <Link to="/">
@@ -122,7 +123,7 @@ export default function Header() {
               src={SimpleVedaLogo}
               alt="Logo"
               style={{
-                height: "100%", // 👈 Make image fill the Box height
+                height: 55,
                 width: "auto",
                 maxWidth: "100%",
                 objectFit: "contain",
@@ -134,15 +135,16 @@ export default function Header() {
 
         {/* Desktop Menu */}
         {!isMobile ? (
-          <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+          <Box sx={{ display: "flex", gap: 0.2, alignItems: "center", ml: "auto" }}>
             <Button component={Link} to="/" sx={{
-                color: "black",
+                color: "#8B4513",
                 textTransform: "none",
-                fontSize: 20,
-                fontWeight: 500,
+                fontSize: "15px",
+                fontWeight: "500",
+                padding: "6px 14px",
                 "&:hover": {
                   color: "#FFB74D",
-                  backgroundColor: "transparent", // prevents default grey hover bg
+                  backgroundColor: "transparent",
                 },
               }}>
               Home
@@ -151,13 +153,14 @@ export default function Header() {
             {/* About Menu */}
             <Button
               sx={{
-                color: "black",
+                color: "#8B4513",
                 textTransform: "none",
-                fontSize: 20,
-                fontWeight: 500,
+                fontSize: "15px",
+                fontWeight: "500",
+                padding: "6px 14px",
                 "&:hover": {
                   color: "#FFB74D",
-                  backgroundColor: "transparent", // prevents default grey hover bg
+                  backgroundColor: "transparent",
                 },
               }}
               endIcon={<ArrowDropDownIcon />}
@@ -186,60 +189,103 @@ export default function Header() {
             </Menu>
 
             <Button component={Link} to="/course" sx={{
-                color: "black",
+                color: "#8B4513",
                 textTransform: "none",
-                fontSize: 20,
-                fontWeight: 500,
+                fontSize: "15px",
+                fontWeight: "500",
+                padding: "6px 14px",
                 "&:hover": {
                   color: "#FFB74D",
-                  backgroundColor: "transparent", // prevents default grey hover bg
+                  backgroundColor: "transparent",
                 },
               }}>
-              Course
+              Courses
             </Button>
-            <Button component={Link} to="/quotes" sx={{
-                color: "black",
+
+            {/* Media Dropdown */}
+            <Button
+              sx={{
+                color: "#8B4513",
                 textTransform: "none",
-                fontSize: 20,
-                fontWeight: 500,
+                fontSize: "15px",
+                fontWeight: "500",
+                padding: "6px 14px",
                 "&:hover": {
                   color: "#FFB74D",
-                  backgroundColor: "transparent", // prevents default grey hover bg
+                  backgroundColor: "transparent",
+                },
+              }}
+              endIcon={<ArrowDropDownIcon />}
+              onClick={handleMediaClick}
+            >
+              Media
+            </Button>
+
+            <Menu
+              anchorEl={mediaAnchor}
+              open={Boolean(mediaAnchor)}
+              onClose={handleMediaClose}
+              sx={{ "& .MuiPaper-root": { backgroundColor: "#333" } }}
+            >
+              {["Videos", "Articles", "Podcasts"].map((item) => (
+                <MenuItem
+                  key={item}
+                  onClick={handleMediaClose}
+                  sx={{ color: "white", "&:hover": { backgroundColor: "#333", color: "#FFB74D" } }}
+                >
+                  {item}
+                </MenuItem>
+              ))}
+            </Menu>
+
+            <Button component={Link} to="/quotes" sx={{
+                color: "#8B4513",
+                textTransform: "none",
+                fontSize: "15px",
+                fontWeight: "500",
+                padding: "6px 14px",
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent",
                 },
               }}>
               Quotes
             </Button>
             <Button component={Link} to="/shop" sx={{
-                color: "black",
+                color: "#8B4513",
                 textTransform: "none",
-                fontSize: 20,
-                fontWeight: 500,
+                fontSize: "15px",
+                fontWeight: "500",
+                padding: "6px 14px",
                 "&:hover": {
                   color: "#FFB74D",
-                  backgroundColor: "transparent", // prevents default grey hover bg
+                  backgroundColor: "transparent",
                 },
               }}>
               Shop
             </Button>
             <Button component={Link} to="/contact" sx={{
-                color: "black",
+                color: "#8B4513",
                 textTransform: "none",
-                fontSize: 20,
-                fontWeight: 500,
+                fontSize: "15px",
+                fontWeight: "500",
+                padding: "6px 14px",
                 "&:hover": {
                   color: "#FFB74D",
-                  backgroundColor: "transparent", // prevents default grey hover bg
+                  backgroundColor: "transparent",
                 },
               }}>
               Contact
             </Button>
 
-            <IconButton sx={{ color: "black" }}>
-              <SearchIcon />
-            </IconButton>
-            <IconButton sx={{ color: "black" }}>
-              <ShoppingCartIcon />
-            </IconButton>
+            <Box sx={{ ml: 1.5, display: "flex", gap: 0.5 }}>
+              <IconButton sx={{ color: "black", padding: "6px" }}>
+                <SearchIcon sx={{ fontSize: "20px" }} />
+              </IconButton>
+              <IconButton sx={{ color: "black", padding: "6px" }}>
+                <ShoppingCartIcon sx={{ fontSize: "20px" }} />
+              </IconButton>
+            </Box>
           </Box>
         ) : (
           // Mobile Menu Icon

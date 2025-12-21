@@ -4,33 +4,42 @@ import SendIcon from '@mui/icons-material/Send'; // Using an icon for the button
 
 // Custom styled component for the TextField to match the desired look
 const StyledTextField = styled(TextField)(({ theme }) => ({
-  flexGrow: 1, // Allows the input to take up maximum available space
-  marginRight: theme.spacing(0.5), // Equivalent to mx-[2px] on the left side
-  
+  flexGrow: 1,
+  marginRight: theme.spacing(0.5),
+
   '& .MuiOutlinedInput-root': {
     backgroundColor: 'white',
-    borderRadius: '5px', // Rounded corners for the input field
-    padding: 0, // Remove default padding that interferes with height
-    
-    // Style the input element itself (to control height/padding)
+    borderRadius: '5px',
+    padding: 0,
+
     '& input': {
-      padding: '10px 16px', // Control inner padding (py-2 px-4)
-      height: 'auto', // Ensure height is controlled by padding
+      padding: '13px 16px',
+      fontSize: '12px',
     },
-    
-    // Focus state (focus:ring-2 focus:ring-black)
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'black',
-      borderWidth: '2px',
-      boxShadow: `0 0 0 2px ${theme.palette.common.black}`, // Mimic focus ring
+
+    '& input::placeholder': {
+      fontSize: '12px',
+      opacity: 0.6,
     },
-    
-    // Ensure the border remains standard when not focused
+
+    /* 🔹 Default (not focused) border */
     '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: theme.palette.grey[300], // Border color
+      borderColor: '#021844', // dark blue
+    },
+
+    /* 🔹 Hover state */
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#021844',
+    },
+
+    /* 🔹 Focused state */
+    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#021844',
+      borderWidth: '2px',
     },
   },
 }));
+
 
 const NewsLetter = () => {
   const YellowColor = '#FFC13C';
@@ -46,8 +55,8 @@ const NewsLetter = () => {
       component="section"
       sx={{
         backgroundColor: YellowColor,
-        py: 6, // Equivalent to py-12
-        px: 2,
+        py: 5, // Equivalent to py-12
+        px: 10,
         transition: 'all 600ms',
         borderRadius: 1, // Slight rounding
         boxShadow: 3, // Standard Material-UI shadow
@@ -55,26 +64,29 @@ const NewsLetter = () => {
     >
       <Box sx={{ maxWidth: 'lg', margin: '0 auto' }}>
         <Grid container spacing={4} component="form" onSubmit={handleSubmit}>
-          
+
+          {/* Left column: Title */}
           {/* Left column: Title */}
           <Grid size={6} item xs={12} md={6}>
             <Typography
-              component="h2"
+              component="h5"
               sx={{
                 color: 'black',
-                fontWeight: 300, // font-light
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '2.8125rem' }, // 45px
-                lineHeight: { xs: 1.2, md: '50px' },
+                fontWeight: 400, // normal weight
+                fontSize: 40,    // normal readable heading size
+                lineHeight: 1.3,
                 fontFamily: 'Roboto, sans-serif',
-                mt: 0.5, // Small margin to align with input field vertically
+                display: 'flex',
+                alignItems: 'center',
+                height: '100%',
               }}
             >
               Subscribe Newsletter
             </Typography>
           </Grid>
-          
+
           {/* Right column: Input and Button */}
-          <Grid size={6} item xs={12} md={6}>
+          <Grid size={6} item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center' }}>
             <Box
               sx={{
                 display: 'flex',
@@ -89,9 +101,9 @@ const NewsLetter = () => {
                 variant="outlined"
                 type="email"
                 required
-                // The marginRight is handled in the StyledTextField definition
+              // The marginRight is handled in the StyledTextField definition
               />
-              
+
               <Button
                 type="submit"
                 variant="contained"
@@ -100,7 +112,7 @@ const NewsLetter = () => {
                   backgroundColor: DarkBlueColor,
                   color: 'white',
                   px: 4, // Equivalent to px-8
-                  py: 1,
+                  py: 2,
                   borderRadius: '5px', // 5px rounding
                   ml: 0.5, // Equivalent to mx-[2px] on the right side
                   height: '42px', // Match the height of the text field
