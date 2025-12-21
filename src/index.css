@@ -1,23 +1,2 @@
-.welcome-h2 {
-  font-size: 45px;
-  font-weight: 300;
-  margin-bottom: 15px;
-}
+@import "tailwindcss";
 
-.sprituality-h2 {
-      font-size: 36px;
-    color: #ffc13c;
-    text-align: center;
-    font-family: Roboto;
-    font-weight: 300;
-    font-style: Sans-serif;
-}
-
-.why-simplevedas-h2 {
-    font-size: 45px;
-    color: #ffffff;
-    text-align: center;
-    font-weight: 400;
-    font-style: Sans-serif;
-    margin-bottom : 20px;
-}

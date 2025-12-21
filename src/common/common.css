@@ -1,0 +1,34 @@
+/* Minimal navbar styles - most styling handled by Tailwind classes */
+
+nav {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Ensure nested dropdowns appear on hover */
+.group:hover > div[class*="absolute"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile slider - ensure only one card shows */
+@media (max-width: 768px) {
+  .slick-slide {
+    padding: 0 4px;
+  }
+  
+  .slick-slide > div {
+    width: 100% !important;
+  }
+  
+  .slick-list {
+    margin: 0 -4px;
+  }
+  
+  .slick-track {
+    display: flex !important;
+  }
+  
+  .slick-slide {
+    height: inherit !important;
+  }
+}

@@ -3,7 +3,7 @@ import WelcomeSection from "../pages/WelcomeSection";
 import SimpleVedasSection from "../pages/SimpleVedasSection";
 import ScientificSpirituality from "../pages/ScientificSpirituality";
 import Testimonials from "../pages/Testimonials";
-import Courses from "../pages/Courses";
+import CoursesPage from "../pages/CoursesPage";
 import WisdomQuotes from "../pages/WisdomQuotes";
 import NewsLetter from "../pages/NewsLetter";
 
@@ -12,7 +12,7 @@ export default function Home() {
     <>
     <Carousel/>
     <WelcomeSection/>
-    <Courses/>
+    <CoursesPage/>
     <SimpleVedasSection/>
     <ScientificSpirituality/>
     <Testimonials/>

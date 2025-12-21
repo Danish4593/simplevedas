@@ -1,126 +1,63 @@
-import React from 'react';
-import { Box, Typography, TextField, Button, Grid, styled } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send'; // Using an icon for the button text
-
-// Custom styled component for the TextField to match the desired look
-const StyledTextField = styled(TextField)(({ theme }) => ({
-  flexGrow: 1, // Allows the input to take up maximum available space
-  marginRight: theme.spacing(0.5), // Equivalent to mx-[2px] on the left side
-  
-  '& .MuiOutlinedInput-root': {
-    backgroundColor: 'white',
-    borderRadius: '5px', // Rounded corners for the input field
-    padding: 0, // Remove default padding that interferes with height
-    
-    // Style the input element itself (to control height/padding)
-    '& input': {
-      padding: '10px 16px', // Control inner padding (py-2 px-4)
-      height: 'auto', // Ensure height is controlled by padding
-    },
-    
-    // Focus state (focus:ring-2 focus:ring-black)
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'black',
-      borderWidth: '2px',
-      boxShadow: `0 0 0 2px ${theme.palette.common.black}`, // Mimic focus ring
-    },
-    
-    // Ensure the border remains standard when not focused
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: theme.palette.grey[300], // Border color
-    },
-  },
-}));
+import { useState } from 'react';
 
 const NewsLetter = () => {
-  const YellowColor = '#FFC13C';
-  const DarkBlueColor = '#021844';
+  const [email, setEmail] = useState('');
 
-  // Function to handle form submission (e.g., prevent default behavior)
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubscribe = () => {
+    console.log('Subscribe:', email);
   };
 
   return (
-    <Box
-      component="section"
-      sx={{
-        backgroundColor: YellowColor,
-        py: 6, // Equivalent to py-12
-        px: 2,
-        transition: 'all 600ms',
-        borderRadius: 1, // Slight rounding
-        boxShadow: 3, // Standard Material-UI shadow
-      }}
-    >
-      <Box sx={{ maxWidth: 'lg', margin: '0 auto' }}>
-        <Grid container spacing={4} component="form" onSubmit={handleSubmit}>
-          
-          {/* Left column: Title */}
-          <Grid size={6} item xs={12} md={6}>
-            <Typography
-              component="h2"
-              sx={{
-                color: 'black',
-                fontWeight: 300, // font-light
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '2.8125rem' }, // 45px
-                lineHeight: { xs: 1.2, md: '50px' },
-                fontFamily: 'Roboto, sans-serif',
-                mt: 0.5, // Small margin to align with input field vertically
-              }}
-            >
+    <div className="bg-[#F5B935] py-8 px-8 md:px-16 lg:px-20">
+      <div className="max-w-7xl mx-auto">
+        {/* Mobile View - Stacked */}
+        <div className="md:hidden flex flex-col gap-4">
+          <h3 className="text-2xl font-thin text-gray-900">
+            Subscribe Newsletter
+          </h3>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-white border-none text-black text-sm rounded-md w-full px-4 py-3 placeholder:text-gray-400 placeholder:font-thin outline-none"
+            placeholder="Enter E-mail address"
+          />
+          <button
+            type="button"
+            onClick={handleSubscribe}
+            className="bg-[#001F3F] text-white font-normal text-base px-6 py-3 rounded-md hover:bg-[#003366] transition-colors w-full"
+          >
+            Send
+          </button>
+        </div>
+
+        {/* Desktop View - Horizontal */}
+        <div className="hidden md:flex items-center justify-between gap-10">
+          <div className="flex-shrink-0">
+            <h3 className="text-3xl md:text-4xl font-thin text-gray-900">
               Subscribe Newsletter
-            </Typography>
-          </Grid>
+            </h3>
+          </div>
           
-          {/* Right column: Input and Button */}
-          <Grid size={6} item xs={12} md={6}>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '100%',
-                // Adjust margin to counteract the TextField's margin and align better
-                mx: -0.5,
-              }}
+          <div className="flex flex-row gap-3 md:min-w-[550px]">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 bg-white border border-black text-black text-sm rounded-md px-4 py-2 placeholder:text-gray-300 placeholder:font-thin outline-none"
+              placeholder="Enter E-mail address"
+            />
+            <button
+              type="button"
+              onClick={handleSubscribe}
+              className="bg-gray-900 text-white font-normal text-lg px-10 py-2 rounded-lg hover:bg-gray-800 transition-colors whitespace-nowrap"
             >
-              <StyledTextField
-                placeholder="Enter E-mail address"
-                variant="outlined"
-                type="email"
-                required
-                // The marginRight is handled in the StyledTextField definition
-              />
-              
-              <Button
-                type="submit"
-                variant="contained"
-                // endIcon={<SendIcon sx={{ color: 'white' }} />} // Optional: Add icon if preferred
-                sx={{
-                  backgroundColor: DarkBlueColor,
-                  color: 'white',
-                  px: 4, // Equivalent to px-8
-                  py: 1,
-                  borderRadius: '5px', // 5px rounding
-                  ml: 0.5, // Equivalent to mx-[2px] on the right side
-                  height: '42px', // Match the height of the text field
-                  fontSize: '1rem',
-                  fontWeight: 300,
-                  transition: 'background-color 300ms',
-                  '&:hover': {
-                    backgroundColor: 'grey.800', // Hover background
-                  },
-                  // Overriding default MUI styles to achieve desired look
-                  minWidth: 'auto',
-                }}
-              >
-                Send
-              </Button>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
