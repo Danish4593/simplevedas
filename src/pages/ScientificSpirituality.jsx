@@ -69,13 +69,13 @@ const ScientificSpirituality = () => {
         >
       {/* Left Section: Text Content */}
       <div className="w-full md:w-1/2 flex flex-col items-center" style={{ textAlign: 'justify', padding: '20px', boxSizing: 'border-box' }}>
-        <h2 style={{ fontWeight: 300, color: '#ffc13c', fontSize: '24px' }}>
+        <h2 style={{ fontWeight: 300, color: '#ffc13c', fontSize: '35px' }}>
           Scientific Spirituality
         </h2>
         <div className="h-8"></div>
         <p
           className="text-white mb-8 text-sm"
-          style={{ fontWeight: 300 }}
+          style={{ fontWeight: 400,fontSize: '16px', lineHeight: '2',width: '85%' }}
         >
           Scientific study is not limited to the realm of material or physical. It is
           also equally valid, if not more, in the metaphysical and spiritual arena.
@@ -86,8 +86,8 @@ const ScientificSpirituality = () => {
             href="https://simplevedas.com/english-videos/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#ffc13c] text-[#021844] hover:opacity-90 py-2 px-4 rounded flex items-center gap-2 transition-opacity text-sm"
-            style={{ backgroundColor: '#ffc13c', color: '#021844', fontSize: '12px', fontWeight: 300 }}
+            className="bg-[#ffc13c] text-[#021844] hover:opacity-90 py-4 px-4 rounded flex items-center gap-2 transition-opacity text-sm"
+            style={{ backgroundColor: '#ffc13c', color: '#021844', fontSize: '14px', fontWeight: 400 }}
           >
             Check our Video Gallery
             <svg
@@ -122,7 +122,7 @@ const ScientificSpirituality = () => {
               href={item.link || 'https://simplevedas.com/english-videos/'}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block"
+              className="w-[92%] mx-auto aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block"
               style={{ 
                 backgroundColor: item.titleBgColor || 'transparent'
               }}
@@ -180,7 +180,7 @@ const ScientificSpirituality = () => {
               href={item.link || 'https://simplevedas.com/english-videos/'}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-full aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block ${index === 1 ? 'hidden md:block' : ''}`}
+              className={`w-[92%] mx-auto aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block ${index === 1 ? 'hidden md:block' : ''}`}
               style={{ 
                 backgroundColor: item.titleBgColor || 'transparent'
               }}
