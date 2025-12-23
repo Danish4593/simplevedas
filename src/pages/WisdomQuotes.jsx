@@ -18,20 +18,19 @@ const quotes = [
 
 const WisdomQuotes = () => {
   return (
-    <section className="bg-[#faf6f1] py-12 md:py-16 px-4">
-      <div className="max-w-5xl mx-auto text-center">
-
-        {/* Heading - SimpleVedas Style */}
-        <div className="mb-10">
-          <div className="flex items-center justify-center gap-4 mb-3">
-            <div className="w-12 h-0.5 bg-[#d4a656]"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#3c2f2f]">
-              Wisdom <span className="text-[#d4a656]">Quotes</span>
+    <section className="bg-[#f1f5f8] pt-[50px] md:pt-[60px] pb-12 md:pb-16 px-4">
+      <div className="max-w-6xl mx-auto text-center">
+        {/* Heading - Matching Design */}
+        <div className="mt-10 mb-5" >
+          <div className="flex items-center justify-center gap-6 ">
+            <div className="w-15 md:w-15 h-1 bg-[#ffc03d] "></div>
+            <h2 className="text-4xl md:text-5xl font-medium whitespace-nowrap">
+              <span className="text-[#2d2d2d]">Wisdom</span>{' '}
+              <span className="text-[#ffc03d]">Quotes</span>
             </h2>
-            <div className="w-12 h-0.5 bg-[#d4a656]"></div>
+            <div className="w-15 md:w-15 h-1 bg-[#ffc03d]"></div>
           </div>
         </div>
-
         {/* 4 Quotes Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {quotes.map((quote, index) => (
@@ -40,34 +39,30 @@ const WisdomQuotes = () => {
               key={index} 
               className={`block group ${index > 0 ? 'hidden sm:block' : ''}`}
             >
-              <div className="relative h-80 overflow-hidden transition-all duration-500">
-                
+              <div className="relative w-full h-96 overflow-hidden transition-all duration-500">
                 {/* Image */}
                 <img
                   src={quote.img}
                   alt="Wisdom quote"
                   className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                 />
-
                 {/* Subtle Golden Border on Hover */}
-                <div className="absolute inset-0 ring-4 ring-transparent group-hover:ring-[#d4a656]/40 transition-all duration-500"></div>
+                <div className="absolute inset-0 ring-4 ring-transparent group-hover:ring-[#ffc03d]/40 transition-all duration-500"></div>
               </div>
             </Link>
           ))}
         </div>
-
         {/* See More Button - Mobile Only */}
         <div className="mt-6 sm:hidden">
           <Link 
             to="/quotes"
-            className="text-[#3c2f2f] hover:underline group inline-block"
+            className="text-[#2d2d2d] hover:underline group inline-block"
           >
             <span className="opacity-0 group-hover:opacity-100 transition-opacity">[</span>
             <span>See More</span>
             <span className="opacity-0 group-hover:opacity-100 transition-opacity">]</span>
           </Link>
         </div>
-
       </div>
     </section>
   );

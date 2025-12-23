@@ -15,32 +15,28 @@ export default function BottomFooter() {
   return (
     <Box
       sx={{
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
         mt: 4,
-        pt: 3,
-        pb: 3,
-        px: { xs: 2, sm: 4, md: 8 }, // 👈 Added horizontal padding (left & right)
+        py: { xs: 1, md: 1.8 },
+        px: 32,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'wrap',
         gap: 2,
-        backgroundColor: '#021231'
+        backgroundColor: 'rgba(2, 19, 49)'
       }}
     >
-      {/* Left Side */}
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
+      {/* Left: text + policy links */}
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap', minWidth: 0 }}>
         <Typography
           variant="body2"
-          sx={{
-            color: 'rgba(255, 255, 255, 0.8)',
-            fontSize: '0.875rem'
-          }}
+          sx={{ color: 'rgba(255,255,255,0.92)', fontSize: '0.875rem', whiteSpace: 'nowrap' }}
         >
-          Simple Vedas © 2025 All Rights Reserved
+          <Box component="span" sx={{ fontWeight: 700, mr: 1 }}>Simple Vedas</Box>
+          <Box component="span" sx={{ color: 'rgba(247,194,26,0.95)', mx: 1 }}>© 2025 All Rights Reserved</Box>
         </Typography>
 
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
           {[
             'Privacy Policy',
             'Refund Policy',
@@ -50,9 +46,9 @@ export default function BottomFooter() {
             <React.Fragment key={policy}>
               <Link
                 href="#"
+                underline="none"
                 sx={{
-                  color: '#ff9800',
-                  textDecoration: 'none',
+                  color: index === 3 ? "rgba(247,194,26,0.95)" : '#d96608ff',
                   fontSize: '0.875rem',
                   '&:hover': { textDecoration: 'underline' }
                 }}
@@ -60,27 +56,34 @@ export default function BottomFooter() {
                 {policy}
               </Link>
               {index < arr.length - 1 && (
-                <Typography sx={{ color: 'rgba(255, 255, 255, 0.5)' }}>|</Typography>
+                <Typography sx={{ color: 'rgba(255,255,255,0.45)' }}>|</Typography>
               )}
             </React.Fragment>
           ))}
         </Box>
       </Box>
 
-      {/* Right Side (Social Icons) */}
-      <Box sx={{ display: 'flex', gap: 1 }}>
-        {[Facebook, Instagram, YouTube].map((Icon, i) => (
+      {/* Right: social icons in square tiles */}
+      <Box sx={{ display: 'flex', gap: 2 }}>
+        {[
+          { Icon: Facebook, label: 'facebook' },
+          { Icon: Instagram, label: 'instagram' },
+          { Icon: YouTube, label: 'youtube' }
+        ].map(({ Icon, label }, i) => (
           <IconButton
-            key={i}
+            key={label}
+            aria-label={label}
             sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              color: 'white',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)'
-              }
+              width: 48,
+              height: 48,
+              backgroundColor: 'rgba(2, 24, 68)',
+              color: '#ffffff',
+              borderRadius: 1,
+              boxShadow: '0 6px 18px rgba(3,18,40,0.6), inset 0 1px 0 rgba(255,255,255,0.02)',
+              '&:hover': { backgroundColor: '#08304b' }
             }}
           >
-            <Icon />
+            <Icon fontSize="small" />
           </IconButton>
         ))}
       </Box>

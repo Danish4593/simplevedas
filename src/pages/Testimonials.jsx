@@ -115,16 +115,16 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-white py-8 md:py-10 px-2 sm:px-4 md:px-6">
+  <section className="bg-white py-8 md:py-10 mt-12 md:mt-16 px-2 sm:px-4 md:px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Header */}
-        <div className="flex items-center justify-center mb-6 sm:mb-8">
-          <div className="hidden sm:block w-12 h-px bg-yellow-400 mx-2"></div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800">
-            Hear it from{' '}
-            <span className="text-yellow-400">Our Students</span>
+        <div className="flex items-center justify-center gap-6 mb-12 sm:mb-16">
+          <div className="w-15 md:w-15 h-1 bg-[#ffc03d]"></div>
+          <h2 className="text-4xl md:text-5xl font-medium whitespace-nowrap">
+            <span className="text-[#2d2d2d]">Hear it from</span>{' '}
+            <span className="text-[#ffc03d]">Our Students</span>
           </h2>
-          <div className="hidden sm:block w-12 h-px bg-yellow-400 mx-2"></div>
+          <div className="w-15 md:w-15 h-1 bg-[#ffc03d]"></div>
         </div>
 
         {/* Infinite Carousel Container */}
@@ -139,7 +139,7 @@ const Testimonials = () => {
             {extendedTestimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex flex-col items-center px-2 sm:px-4 md:px-6 min-h-96"
+                className="flex-shrink-0 flex flex-col items-center px-2 sm:px-4 md:px-6 min-h-[32rem]"
                 style={{ width: `${100 / extendedTestimonials.length}%` }}
               >
                 <img
@@ -163,7 +163,7 @@ const Testimonials = () => {
                   <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
                 </svg>
 
-                <p className="text-gray-700 leading-relaxed max-w-2xl px-4 text-sm" style={{ fontWeight: 300 }}>
+                 <p className="text-gray-700 leading-relaxed max-w-3xl px-4 text-base sm:text-lg" style={{ fontWeight: 300, lineHeight: '1.8' }}>
                   &quot;{testimonial.quote}&quot;
                 </p>
               </div>
@@ -172,12 +172,12 @@ const Testimonials = () => {
         </div>
 
         {/* Navigation Dots */}
-        <div className="flex justify-center mt-6 sm:mt-8 gap-2">
+        <div className="flex justify-center mt-4 sm:mt-8 gap-3">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => handleSlideChange(index)}
-              className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
                 index === getActiveDotIndex()
                   ? 'bg-yellow-400'
                   : 'bg-gray-400 hover:bg-yellow-400'
