@@ -114,17 +114,18 @@ const CoursesPage = () => {
 
   return (
     <>
-      <div className="bg-[#f1f5f8] py-8 sm:py-12 md:py-16 px-4 sm:px-8 md:px-16 lg:px-24">
+      <div className="bg-[#f1f5f8] py-8 sm:py-12 md:py-16 px-30 sm:px-34 md:px-42 lg:px-50">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 md:mb-12 pt-4">
-          <div className="flex flex-wrap justify-center items-center gap-2 mb-1">
-            <div className="hidden sm:block w-12 h-0.5 bg-[#FFC13C]"></div>
-            <h2 className="text-2xl sm:text-4xl font-semibold text-center font-roboto">
-              Our <span className="text-[#FFC13C]">Courses</span>
+          <div className="flex items-center justify-center gap-6 mb-3">
+            <div className="hidden sm:block flex-1 max-w-[60px] h-1 bg-[#FFC13C] rounded"></div>
+            <h2 className="text-4xl sm:text-5xl font-medium text-center font-roboto tracking-tight">
+              <span className="text-[#222]">Our </span>
+              <span className="text-[#FFC13C]">Courses</span>
             </h2>
-            <div className="hidden sm:block w-12 h-0.5 bg-[#FFC13C]"></div>
+            <div className="hidden sm:block flex-1 max-w-[60px] h-1 bg-[#FFC13C] rounded"></div>
           </div>
-          <p className="text-[#222] tracking-widest uppercase text-xs sm:text-base mt-2">
+          <p className="text-[#222] uppercase text-base sm:text-lg font-light mt-2 text-gray-700">
             Learn as never before
           </p>
         </div>
@@ -160,7 +161,7 @@ const CoursesPage = () => {
           </div>
 
           {/* Slider indicators - positioned at bottom */}
-          <div className="flex justify-center items-center space-x-2 mt-6">
+          <div className="flex justify-center items-center space-x-2 my-10 ">
             {courses.map((_, index) => {
               // Calculate which course is currently visible (accounting for extended array)
               let actualIndex = currentIndex - 2;
@@ -195,7 +196,7 @@ const CoursesPage = () => {
             <button
               type="button"
               onClick={goToPrevious}
-              className="group relative inline-flex items-center px-5 py-1.5 border border-gray-300 hover:bg-[#FFC13C] hover:border-[#FFC13C] active:bg-[#FFC13C] active:border-[#FFC13C] focus:outline-none transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center px-7 py-3 border border-[#FFC13C] hover:bg-[#FFC13C] hover:border-[#FFC13C] active:bg-[#FFC13C] active:border-[#FFC13C] focus:outline-none transition-all duration-300 overflow-hidden"
               data-carousel-prev
             >
               <span className="absolute left-0 flex items-center justify-end w-8 h-full duration-300 transform translate-x-full opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 ease">
@@ -208,7 +209,7 @@ const CoursesPage = () => {
             <button
               type="button"
               onClick={goToNext}
-              className="group relative inline-flex items-center px-5 py-1.5 border border-gray-300 hover:bg-[#FFC13C] hover:border-[#FFC13C] active:bg-[#FFC13C] active:border-[#FFC13C] focus:outline-none transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center px-7 py-3 border border-[#FFC13C] hover:bg-[#FFC13C] hover:border-[#FFC13C] active:bg-[#FFC13C] active:border-[#FFC13C] focus:outline-none transition-all duration-300 overflow-hidden"
               data-carousel-next
             >
               <span className="relative text-sm transform transition-all duration-300 group-hover:-translate-x-3">Next</span>

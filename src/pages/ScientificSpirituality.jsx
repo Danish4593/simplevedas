@@ -115,14 +115,14 @@ const ScientificSpirituality = () => {
         style={{ padding: '10px', boxSizing: 'border-box' }}
       >
         {/* First Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 mr-20">
           {mediaContent.slice(0, 2).map((item, index) => (
             <a
               key={index}
               href={item.link || 'https://simplevedas.com/english-videos/'}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-[92%] mx-auto aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block"
+              className="w-full aspect-[5/4] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block"
               style={{ 
                 backgroundColor: item.titleBgColor || 'transparent'
               }}
@@ -155,7 +155,7 @@ const ScientificSpirituality = () => {
                       </div>
                     </div>
                   </div>
-                  {item.title && (
+                  {/* {item.title && (
                     <div
                       className={`absolute ${item.titlePosition === 'bottom' ? 'bottom-0 left-0' : 'top-0 left-0'} w-full p-2 text-center font-bold`}
                       style={{
@@ -166,21 +166,21 @@ const ScientificSpirituality = () => {
                     >
                       {item.title}
                     </div>
-                  )}
+                  )} */}
                 </>
               )}
             </a>
           ))}
         </div>
         {/* Second Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mr-20">
           {mediaContent.slice(2, 4).map((item, index) => (
             <a
               key={index + 2}
               href={item.link || 'https://simplevedas.com/english-videos/'}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-[92%] mx-auto aspect-[5/3] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block ${index === 1 ? 'hidden md:block' : ''}`}
+              className={`w-full aspect-[5/4] rounded-none flex flex-col relative overflow-hidden cursor-pointer group block ${index === 1 ? 'hidden md:block' : ''}`}
               style={{ 
                 backgroundColor: item.titleBgColor || 'transparent'
               }}
@@ -213,7 +213,7 @@ const ScientificSpirituality = () => {
                       </div>
                     </div>
                   </div>
-                  {item.title && (
+                  {/* {item.title && (
                     <div
                       className={`absolute ${item.titlePosition === 'bottom' ? 'bottom-0 left-0' : 'top-0 left-0'} w-full p-2 text-center font-bold`}
                       style={{
@@ -224,7 +224,7 @@ const ScientificSpirituality = () => {
                     >
                       {item.title}
                     </div>
-                  )}
+                  )} */}
                 </>
               )}
             </a>

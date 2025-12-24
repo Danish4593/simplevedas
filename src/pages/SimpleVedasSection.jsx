@@ -38,7 +38,7 @@ const SimpleVedasSection = () => {
 
   return (
     <div
-      className="hidden md:block relative py-12 md:py-12 px-4 sm:px-8 text-center min-h-screen"
+      className="hidden md:block relative py-12 md:py-12 px-4 sm:px-8 text-center min-h-[85vh]"
       style={{
         backgroundImage: `url(${bg})`,
         backgroundSize: 'cover',
@@ -53,32 +53,32 @@ const SimpleVedasSection = () => {
       {/* Content */}
       <div className="relative z-[2] max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="font-thin text-white/80 mb-8 md:mb-12 text-2xl sm:text-3xl md:text-5xl">
+        <h2 className="font-medium text-white/100 mb-8 md:mb-12 text-2xl sm:text-3xl md:text-5xl">
           Why Simple Vedas?
         </h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 justify-items-center mt-20">
           {featureBoxes.map((feature, index) => {
             return (
-              <div
+                <div
                 key={index}
-                className="bg-[#fbc02d] p-6 sm:p-8 flex flex-col justify-between items-start text-left w-[300px] sm:w-[320px] md:w-[340px] h-[160px] sm:h-[180px] md:h-[200px] border-2 border-transparent transition-all duration-[1500ms] ease-in-out shadow-lg hover:bg-white group"
+                  className="bg-[#fbc02d] p-6 sm:p-8 flex flex-col justify-between items-start text-left w-[300px] sm:w-[320px] md:w-[400px] h-[220px] sm:h-[240px] md:h-[260px] mb-5 sm:mb-5 md:mb-5 border-2 border-transparent transition-all duration-[1500ms] ease-in-out shadow-lg hover:bg-white group"
               >
                 {/* Icon + Title */}
                 <div className="w-full">
-                  <div className="mb-3 text-[#2b2c2e] transition-colors duration-300 group-hover:text-[#fbc02d]">
+                  <div className="mb-5 text-[#2b2c2e] transition-colors duration-300 group-hover:text-[#fbc02d]">
                     <i className={`${feature.iconClass} text-[35px]`}></i>
                   </div>
 
-                  <h3 className="text-[#2b2c2e] font-semibold mb-3 text-[18px] leading-tight">
+                  <h3 className="text-[#2b2c2e] font-semibold mb-5 text-[24px] leading-tight">
                     {feature.title}
                   </h3>
 
                   <div className="w-10 h-0.5 bg-[#2b2c2e] mb-0 transition-colors duration-300 group-hover:bg-[#fbc02d]"></div>
 
                   {/* Description */}
-                  <p className="text-[#2b2c2e] text-[14px] leading-[22px] mt-1 w-full">
+                  <p className="text-[#2b2c2e] text-[16px] leading-[28px] mt-7 w-full">
                     {feature.description}
                   </p>
                 </div>

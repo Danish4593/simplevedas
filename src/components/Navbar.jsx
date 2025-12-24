@@ -119,14 +119,14 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-none relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/"><img src={logo} alt="Simple Vedas" className="h-14" /></Link>
+        <div className="flex items-center justify-between h-30">
+          <Link to="/"><img src={logo} alt="Simple Vedas" className="h-19" /></Link>
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-1">
             {NAV_ITEMS.map((item, i) => (
               <div key={i} className="relative group">
-                <Link to={item.to || '#'} className={`px-3 py-2 text-sm font-medium inline-flex items-center gap-1 ${isActive(item.to) ? 'text-red-800' : 'text-gray-700 hover:text-yellow-500'}`}>
+                <Link to={item.to || '#'} className={`px-3 py-2 text-medium font-medium inline-flex items-center gap-1 ${isActive(item.to) ? 'text-red-800' : 'text-gray-700 hover:text-yellow-500'}`}>
                   {item.label}
                   {item.children && <ChevronDown size={14} />}
                 </Link>
