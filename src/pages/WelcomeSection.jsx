@@ -3,7 +3,7 @@ export default function WelcomeSection() {
     <section className="py-20 bg-white flex items-center">
       <div className="  md:px-40  ">
         {/* Title - shows first on mobile, hidden on desktop (will be in text content) */}
-        <h2 className="text-3xl md:text-4xl font-light mb-6 text-gray-800 text-center md:hidden" style={{fontFamily: 'serif'}}>
+        <h2 className="text-3xl md:text-4xl mb-6 text-center md:hidden" style={{fontFamily: 'Roboto', fontSize: '45px', fontWeight: '300', color: '#222222', lineHeight: 'normal'}}>
           Welcome to Simple Vedas
         </h2>
         
@@ -25,7 +25,7 @@ export default function WelcomeSection() {
               style={{backgroundColor: '#ffb20c'}}
             ></div>
             {/* Title - hidden on mobile, shown on desktop */}
-            <h2 className="hidden md:block text-4xl md:text-5xl font-light mb-3 text-gray-800" >
+            <h2 className="hidden md:block text-4xl md:text-5xl mb-3 text-gray-800" style={{fontFamily: 'Roboto', fontSize: '45px', fontWeight: '300', color: '#222222', lineHeight: 'normal'}}>
               Welcome to Simple Vedas
             </h2>
             
@@ -35,11 +35,11 @@ export default function WelcomeSection() {
               <div className="w-10 h-1" style={{backgroundColor: '#e8e4e1ff'}}></div>
             </div>
             
-            <h3 className="hidden md:block text-lg md:text-2xl font-medium mb-8" style={{color: '#ffb20c'}}>
+            <h3 className="hidden md:block text-lg md:text-2xl font-medium mb-8" style={{color: '#ffb20c', fontFamily: 'Roboto Condensed', fontWeight: '400'}}>
               Making Spirituality Simple for You
             </h3>
             
-            <p className="text-gray-600 mb-10 leading-relaxed text-medium " style={{textAlign: 'justify' , width: '95%',fontSize: 18}}>
+            <p className="mb-10 leading-relaxed" style={{textAlign: 'justify', width: '95%', fontSize: '18px', color: '#222222', fontFamily: 'Roboto', fontWeight: '400'}}>
               Simple Vedas is to serve as a bridge between the ancient and the modern, between the spiritual and the material, between the philosophy and the practice, so that one can easily understand, appreciate, and apply the Vedic technologies in one's life, bringing to it more meaning and content, and thus enjoy the bliss that we all are really made for.
             </p>
             

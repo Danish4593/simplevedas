@@ -12,7 +12,7 @@ const NewsLetter = () => {
       <div className="max-w-7xl mx-auto">
         {/* Mobile View - Stacked */}
         <div className="md:hidden flex flex-col gap-4">
-          <h3 className="text-2xl font-light text-gray-900">
+          <h3 className="text-2xl font-light text-gray-900" style={{fontFamily: 'Roboto, sans-serif'}}>
             Subscribe Newsletter
           </h3>
           <input
@@ -49,6 +49,7 @@ const NewsLetter = () => {
             <button
               type="button"
               onClick={handleSubscribe}
+              style={{fontFamily: 'Roboto, sans-serif'}}
               className="bg-[#001F3F] text-white font-medium text-base px-12 py-3 rounded-md hover:bg-[#003366] transition-colors whitespace-nowrap"
             >
               Send

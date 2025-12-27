@@ -47,7 +47,7 @@ const CourseCard = ({
           </div>
 
           {/* Main Title */}
-          <h4 className="text-xl sm:text-xl font-medium text-gray-900 my-7 leading-tight">{title}</h4>
+          <h4 className="text-xl sm:text-xl font-medium text-gray-900 my-7 leading-tight" style={{ fontFamily: 'Open Sans',fontWeight:"700" }}>{title}</h4>
         </div>
 
         {/* Price row */}
@@ -63,4 +63,3 @@ const CourseCard = ({
 };
 
 export default CourseCard;
-
