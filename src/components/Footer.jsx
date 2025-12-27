@@ -151,18 +151,21 @@ const Footer = () => {
 const headingStyle = {
   fontSize: '18px',
   fontWeight: 500,
-  mb: 1.5
+  mb: 1.5,
+  fontFamily: 'Roboto, sans-serif'
 };
 
 const subHeading = {
   fontSize: '18px',
   mb: 1,
+  fontFamily: 'Roboto, sans-serif'
 };
 
 const bodyText = {
   fontSize: '15px',
   color: 'gray',
-  lineHeight: 2
+  lineHeight: 2,
+  fontFamily: '"Open Sans", sans-serif'
 };
 
 const dividerStyle = {

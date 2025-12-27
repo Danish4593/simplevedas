@@ -53,7 +53,7 @@ const SimpleVedasSection = () => {
       {/* Content */}
       <div className="relative z-[2] max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="font-medium text-white/100 mb-8 md:mb-12 text-2xl sm:text-3xl md:text-5xl">
+        <h2 className="font-medium text-white/100 mb-8 md:mb-12 text-2xl sm:text-3xl md:text-5xl" style={{ fontFamily: 'Open Sans' }}>
           Why Simple Vedas?
         </h2>
 
@@ -71,14 +71,14 @@ const SimpleVedasSection = () => {
                     <i className={`${feature.iconClass} text-[35px]`}></i>
                   </div>
 
-                  <h3 className="text-[#2b2c2e] font-semibold mb-5 text-[24px] leading-tight">
+                  <h3 className="text-[#2b2c2e] font-semibold mb-5 text-[24px] leading-tight" style={{ fontFamily: 'Open Sans' }}>
                     {feature.title}
                   </h3>
 
                   <div className="w-10 h-0.5 bg-[#2b2c2e] mb-0 transition-colors duration-300 group-hover:bg-[#fbc02d]"></div>
 
                   {/* Description */}
-                  <p className="text-[#2b2c2e] text-[16px] leading-[28px] mt-7 w-full">
+                  <p className="text-[#2b2c2e] text-[16px] leading-[28px] mt-7 w-full" style={{ fontFamily: 'Open Sans' }}>
                     {feature.description}
                   </p>
                 </div>

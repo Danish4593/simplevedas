@@ -30,7 +30,7 @@ export default function BottomFooter() {
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap', minWidth: 0 }}>
         <Typography
           variant="body2"
-          sx={{ color: 'rgba(255,255,255,0.92)', fontSize: '0.875rem', whiteSpace: 'nowrap' }}
+          sx={{ color: 'rgba(255,255,255,0.92)', fontSize: '0.875rem', fontFamily: 'Open Sans', whiteSpace: 'nowrap' }}
         >
           <Box component="span" sx={{ fontWeight: 700, mr: 1 }}>Simple Vedas</Box>
           <Box component="span" sx={{ color: 'rgba(247,194,26,0.95)', mx: 1 }}>© 2025 All Rights Reserved</Box>
@@ -50,13 +50,14 @@ export default function BottomFooter() {
                 sx={{
                   color: index === 3 ? "rgba(247,194,26,0.95)" : '#d96608ff',
                   fontSize: '0.875rem',
+                  fontFamily: 'Open Sans',
                   '&:hover': { textDecoration: 'underline' }
                 }}
               >
                 {policy}
               </Link>
               {index < arr.length - 1 && (
-                <Typography sx={{ color: 'rgba(255,255,255,0.45)' }}>|</Typography>
+                <Typography sx={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'Open Sans' }}>|</Typography>
               )}
             </React.Fragment>
           ))}

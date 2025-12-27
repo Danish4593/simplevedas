@@ -28,13 +28,15 @@ const FirstNavbar = () => {
             {/* Left Side - Contact Info */}
             <div className="flex gap-6 md:gap-8 items-center mr-6">
               <span
-                className="text-medium text-gray-800 hover:text-[#800000] transition-colors" 
+                className="text-gray-800 hover:text-[#800000] transition-colors"
+                style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
               >
                 +91 99873 18251
               </span>
               <a
                 href="mailto:info@simplevedas.com"
-                className="text-medium text-gray-800 hover:text-[#800000] transition-colors"
+                className="text-gray-800 hover:text-[#800000] transition-colors"
+                style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
               >
                 info@simplevedas.com
               </a>
@@ -49,7 +51,10 @@ const FirstNavbar = () => {
                   onClick={handleLoginOpen}
                 >
                   <LockClosedIcon className="w-6 h-6 text-[#800000]" />
-                  <span className="text-medium text-[#800000] cursor-pointer">
+                  <span 
+                    className="text-[#800000] cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px' }}
+                  >
                     Login
                   </span>
                 </div>
@@ -60,7 +65,10 @@ const FirstNavbar = () => {
                   onClick={handleRegisterOpen}
                 >
                   <KeyIcon className="w-6 h-6 text-gray-800" />
-                  <span className="text-medium text-gray-800 cursor-pointer">
+                  <span 
+                    className="text-gray-800 cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
+                  >
                     Register
                   </span>
                 </div>
@@ -68,7 +76,10 @@ const FirstNavbar = () => {
                 {/* Support Us */}
                 <div className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                   <HeartIcon className="w-6 h-6 text-[#800000]" />
-                  <span className="text-medium text-[#800000] cursor-pointer font-medium">
+                  <span 
+                    className="text-[#800000] cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', fontWeight: '400' }}
+                  >
                     Support Us
                   </span>
                 </div>
@@ -81,7 +92,10 @@ const FirstNavbar = () => {
                   onClick={handleLogout}
                 >
                   <LockOpenIcon className="w-4 h-4 text-gray-800" />
-                  <span className="text-sm text-gray-800 cursor-pointer">
+                  <span 
+                    className="text-gray-800 cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
+                  >
                     Logout
                   </span>
                 </div>
@@ -89,7 +103,10 @@ const FirstNavbar = () => {
                 {/* Support Us */}
                 <div className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                   <HeartIcon className="w-4 h-4 text-[#800000]" />
-                  <span className="text-sm text-[#800000] cursor-pointer font-medium">
+                  <span 
+                    className="text-[#800000] cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px' }}
+                  >
                     Support Us
                   </span>
                 </div>
@@ -104,7 +121,8 @@ const FirstNavbar = () => {
                 {/* Left Side - Phone Number, Register and Login */}
                 <div className="flex gap-3 items-center flex-wrap">
                   <span
-                    className="text-sm text-gray-800 hover:text-[#800000] transition-colors"
+                    className="text-gray-800 hover:text-[#800000] transition-colors"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
                   >
                     +91 99873 18251
                   </span>
@@ -115,7 +133,10 @@ const FirstNavbar = () => {
                     onClick={handleRegisterOpen}
                   >
                     <KeyIcon className="w-4 h-4 text-gray-800" />
-                    <span className="text-sm text-gray-800 cursor-pointer">
+                    <span 
+                      className="text-gray-800 cursor-pointer"
+                      style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
+                    >
                       Register
                     </span>
                   </div>
@@ -126,7 +147,10 @@ const FirstNavbar = () => {
                     onClick={handleLoginOpen}
                   >
                     <LockClosedIcon className="w-4 h-4 text-[#800000]" />
-                    <span className="text-sm text-[#800000] cursor-pointer">
+                    <span 
+                      className="text-[#800000] cursor-pointer"
+                      style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px' }}
+                    >
                       Login
                     </span>
                   </div>
@@ -136,7 +160,10 @@ const FirstNavbar = () => {
                 {/* Right Side - Support Us */}
                 <div className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                   <HeartIcon className="w-4 h-4 text-[#800000]" />
-                  <span className="text-sm text-[#800000] cursor-pointer font-medium">
+                  <span 
+                    className="text-[#800000] cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px' }}
+                  >
                     Support Us
                   </span>
                 </div>
@@ -146,7 +173,8 @@ const FirstNavbar = () => {
                 {/* Left Side - Phone Number and Logout */}
                 <div className="flex gap-3 items-center flex-wrap">
                   <span
-                    className="text-sm text-gray-800 hover:text-[#800000] transition-colors"
+                    className="text-gray-800 hover:text-[#800000] transition-colors"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
                   >
                     +91 99873 18251
                   </span>
@@ -155,7 +183,10 @@ const FirstNavbar = () => {
                     onClick={handleLogout}
                   >
                   <LockOpenIcon className="w-4 h-4 text-gray-800" />
-                  <span className="text-sm text-gray-800 cursor-pointer">
+                  <span 
+                    className="text-gray-800 cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px', color: '#000000' }}
+                  >
                     Logout
                   </span>
                   </div>
@@ -164,7 +195,10 @@ const FirstNavbar = () => {
                 {/* Right Side - Support Us */}
                 <div className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                   <HeartIcon className="w-4 h-4 text-[#800000]" />
-                  <span className="text-sm text-[#800000] cursor-pointer font-medium">
+                  <span 
+                    className="text-[#800000] cursor-pointer"
+                    style={{ fontFamily: '"Open Sans", sans-serif', fontSize: '16px', fontWeight: '400', lineHeight: '31px' }}
+                  >
                     Support Us
                   </span>
                 </div>
